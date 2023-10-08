@@ -1,24 +1,23 @@
 package presentationLayer;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-import logicDomainLayer.Buyer;
-import logicDomainLayer.Clothing;
+import DTO.UserDTO;
+
 import logicDomainLayer.Electronic;
-import logicDomainLayer.FlatDiscount;
+
 import logicDomainLayer.Order;
 import logicDomainLayer.Product;
 import logicDomainLayer.SeasonalDiscount;
 import logicDomainLayer.Shoppingcart;
 import logicDomainLayer.User;
-import logicDomainLayer.Product.DiscountStrategy;
 
 public class WebshopConsoleAppl {
 
 	private User currentUser;
 	private Scanner scanner;
-	private WebshopUI webshopUI;
 
 	private ArrayList<Product> products = new ArrayList<>(); // een lijst waar je alle producten in kunt opslaan.
 
@@ -28,7 +27,8 @@ public class WebshopConsoleAppl {
 	public WebshopConsoleAppl() {
 
 		this.scanner = new Scanner(System.in);
-		this.webshopUI = new WebshopUI(); // Initialize the WebshopUI
+
+		currentUser = new User(new UserDTO("Burak", "E"), null);
 
 	}
 
@@ -42,6 +42,11 @@ public class WebshopConsoleAppl {
 
 	}
 
+	public void displayProductDetails(Product product) {
+		System.out.println("Product: " + product.getName() + ", Price: " + product.getPrice() + ", Description: "
+				+ product.getDescription());
+	}
+
 	private void run() {
 
 		// Product flatDiscountProduct = new Product("iPhone 13", 800, new
@@ -49,17 +54,12 @@ public class WebshopConsoleAppl {
 		// Product seasonalDiscountProduct = new Product("Winter cap", 150, new
 		// SeasonalDiscount(25)); //25% discount
 
-		FlatDiscount flatDiscount = new FlatDiscount(30); // 30% korting
 		SeasonalDiscount seasonalDiscount = new SeasonalDiscount(20);
 
-		Electronic flatDiscountProduct = new Electronic("iPhone 13", 800, "4 GB RAM, 256 GB SSD", flatDiscount, "Apple",
-				"2 years");
-
-		Clothing seasonalDiscountProduct = new Clothing("Winter cap", 150, "Diesel winter cap leather outside",
-				seasonalDiscount, "L", "Cotton");
+		Electronic flatDiscountProduct = new Electronic("iPhone 13", 800, "4 GB RAM, 256 GB SSD", seasonalDiscount,
+				"Apple", "2 years");
 
 		System.out.println("iPhone 13 price after Discount: " + flatDiscountProduct.getPriceAfterDiscount());
-		System.out.println("Winter cap price after discount: " + seasonalDiscountProduct.getPriceAfterDiscount());
 
 		int numberExit = 10;
 
@@ -76,23 +76,11 @@ public class WebshopConsoleAppl {
 			switch (userInput) {
 
 			case 1:
-				logIn();
+
+				viewProducts();
+
 				break;
 			case 2:
-				register();
-				break;
-			case 3:
-				if (currentUser != null) {
-
-					viewProducts();
-
-				} else {
-
-					System.out.println("You need to be logged in");
-
-				}
-				break;
-			case 4:
 				if (currentUser != null) {
 
 					// currentUser.viewSearchHistory();
@@ -102,32 +90,27 @@ public class WebshopConsoleAppl {
 				}
 				break;
 
-			case 5:
+			case 3:
 
 				placeOrder();
 				break;
 
-			case 6:
+			case 4:
 
 				addProductToCart();
 				break;
 
-			case 7:
+			case 5:
 
 				displayProductsInCart();
 				break;
 
-			case 8:
+			case 6:
 
 				addElectronics();
 				break;
 
-			case 9:
-
-				addClothing();
-				break;
-
-			case 10:
+			case 0:
 
 				System.out.println("Thank you for visiting bol.com");
 				// exit method
@@ -145,15 +128,12 @@ public class WebshopConsoleAppl {
 	private void printMenu() {
 
 		System.out.println("\nWelcome to bol.com");
-		System.out.println("1. Log in");
-		System.out.println("2. Register");
-		System.out.println("3. View Products");
-		System.out.println("4. View Search History");
-		System.out.println("5. Place an Order");
-		System.out.println("6. Add Product to ShoppingCart");
-		System.out.println("7. Display Products in Shopping Cart");
-		System.out.println("8. Add Electronic Product");
-		System.out.println("9. Add Clothing Product");
+		System.out.println("1. View Products");
+		System.out.println("2. View Search History");
+		System.out.println("3. Place an Order");
+		System.out.println("4. Add Product to ShoppingCart");
+		System.out.println("5. Display Products in Shopping Cart");
+		System.out.println("6. Add Electronic Product");
 
 		System.out.println("0. Exit");
 		System.out.print("Enter number: ");
@@ -178,70 +158,6 @@ public class WebshopConsoleAppl {
 
 		products.add(electronicProduct);
 		System.out.println(name + " has been added to the product list.");
-
-	}
-
-	private void addClothing() {
-
-		System.out.print("Enter product name: ");
-		String name = scanner.nextLine();
-
-		System.out.print("Enter product price: ");
-		double price = scanner.nextDouble();
-
-		System.out.print("Enter product description: ");
-		String description = scanner.nextLine();
-
-		// Add other specific attributes of the clothing product
-
-		Clothing clothingProduct = new Clothing(name, price, description, "L", "Coton");
-
-		products.add(clothingProduct);
-
-		System.out.println(name + " has been added to the product list. ");
-
-	}
-
-	private void logIn() {
-
-		System.out.print("Enter username: ");
-		String username = scanner.nextLine();
-
-		System.out.println("Enter password: ");
-		String password = scanner.nextLine();
-
-		if ("userBurak".equals(username) && "1234".equals(password)) {
-
-			this.currentUser = new Buyer(username, password, null, null, null);
-			System.out.println("You are succesfull logged in as " + username);
-
-		} else {
-
-			System.out.println("Login not succes. Check your username and password again");
-
-		}
-
-	}
-
-	private void register() {
-
-		System.out.print("Enter your username: ");
-		String username = scanner.nextLine();
-
-		System.out.print("Enter your password: ");
-		String password = scanner.nextLine();
-
-		System.out.print("Enter your email: ");
-		String email = scanner.nextLine();
-
-		System.out.print("Enter your firstName: ");
-		String firstName = scanner.nextLine();
-
-		System.out.print("Enter your lastName: ");
-		String lastName = scanner.nextLine();
-
-		this.currentUser = new Buyer(username, password, email, firstName, lastName);
-		System.out.println("Your registration has been completed. Username: " + username + "\n E-mail: " + email);
 
 	}
 
@@ -277,19 +193,11 @@ public class WebshopConsoleAppl {
 
 	private void placeOrder() {
 
-		// there is a user currently logged in.
-		if (currentUser != null) {
+		Shoppingcart cart = currentUser.getShoppingCart();
 
-			Shoppingcart cart = currentUser.getShoppingCart();
-
-			Order order = cart.convertToOrder();
-			currentUser.addOrder(order);
-			System.out.println("Order placed successfully ");
-
-		} else {
-
-			System.out.println("Please login first ");
-		}
+		Order order = cart.convertToOrder();
+		currentUser.addOrder(order);
+		System.out.println("Order placed successfully ");
 
 	}
 
@@ -302,32 +210,11 @@ public class WebshopConsoleAppl {
 		System.out.print("Enter product price: ");
 		double productPrice = scanner.nextDouble();
 
-//		Product product = new Product(productName, productPrice);
-//
-//		// current user's cart is updated
-//		if (currentUser != null && currentUser.getShoppingCartA() != null) {
-//
-//			currentUser.getShoppingCartA().addProduct(product);
-//			System.out.println(productName + " has been added to your personal shopping cart ");
-//
-//		} else {
-//
-//			System.out.println("User not logged in or Shopping Cart does not excist");
-//
-//		}
-
 	}
 
 	private void displayProductsInCart() {
 
-		if (currentUser != null && currentUser.getShoppingCart() != null) {
-
-			currentUser.getShoppingCart().viewProducts();
-
-		} else {
-			System.out.println("User is not logged in or Shopping Cart is not initialized. ");
-
-		}
+		currentUser.getShoppingCart().getProducts();
 
 	}
 

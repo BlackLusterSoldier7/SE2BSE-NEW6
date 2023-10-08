@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import logicDomainLayer.Product;
+import logicDomainLayer.DiscountStrategy;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +23,13 @@ public class ProductTest {
 				new TenPercentDiscountStrategy()) {
 
 		};
+	}
+
+	private class TenPercentDiscountStrategy implements DiscountStrategy {
+		@Override
+		public double applyDiscount(double price) {
+			return price * 0.9;
+		}
 	}
 
 	@Test
@@ -70,12 +78,4 @@ public class ProductTest {
 
 	}
 
-	private class TenPercentDiscountStrategy implements Product.DiscountStrategy {
-
-		@Override
-		public double applyDiscount(double price) {
-			return price * 0.9;
-		}
-
-	}
 }

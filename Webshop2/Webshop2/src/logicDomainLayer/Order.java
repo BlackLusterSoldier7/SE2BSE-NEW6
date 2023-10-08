@@ -1,20 +1,35 @@
 package logicDomainLayer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Order {
 
 	private List<Product> orderedProducts;
 
+	
 	public Order() {
+
+		this.orderedProducts = new ArrayList<>();
 
 	}
 
-	public Order(List<Product> products) {
+	public List<Product> getOrderedProducts() {
 
-		this.orderedProducts = new ArrayList<>(products);
+		return Collections.unmodifiableList(orderedProducts);
 
+	}
+
+	public void addProduct(Product product) {
+
+		orderedProducts.add(product);
+
+	}
+
+	public void removeProduct(Product product) {
+
+		orderedProducts.remove(product);
 	}
 
 	public double getTotalPrice() {

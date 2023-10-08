@@ -1,6 +1,6 @@
 package logicDomainLayer;
 
-import logicDomainLayer.Product.DiscountStrategy;
+
 
 public class SeasonalDiscount implements DiscountStrategy {
 
