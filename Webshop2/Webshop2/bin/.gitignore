@@ -1,4 +1,6 @@
-/presentationLayer/
-/logicDomainLayer/
-/Tests/
 /DTO/
+/Tests/
+/infrastructureLayer/
+/logicDomainLayer/
+/module-info.class
+/presentationLayer/

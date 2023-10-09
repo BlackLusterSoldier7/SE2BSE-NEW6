@@ -6,15 +6,13 @@ import java.util.Scanner;
 
 import DTO.UserDTO;
 
-import logicDomainLayer.Electronic;
-
 import logicDomainLayer.Order;
 import logicDomainLayer.Product;
 import logicDomainLayer.SeasonalDiscount;
 import logicDomainLayer.Shoppingcart;
 import logicDomainLayer.User;
 
-public class WebshopConsoleAppl {
+public class ConsoleUserInterface {
 
 	private User currentUser;
 	private Scanner scanner;
@@ -24,7 +22,7 @@ public class WebshopConsoleAppl {
 	// scanner attribute of class WebshopConsoleaAppl is initialized
 	// no null. no nullpointerexception more
 
-	public WebshopConsoleAppl() {
+	public ConsoleUserInterface() {
 
 		this.scanner = new Scanner(System.in);
 
@@ -37,7 +35,7 @@ public class WebshopConsoleAppl {
 
 		System.out.println("BOL.COM webshop");
 
-		WebshopConsoleAppl app = new WebshopConsoleAppl();
+		ConsoleUserInterface app = new ConsoleUserInterface();
 		app.run();
 
 	}
@@ -55,11 +53,6 @@ public class WebshopConsoleAppl {
 		// SeasonalDiscount(25)); //25% discount
 
 		SeasonalDiscount seasonalDiscount = new SeasonalDiscount(20);
-
-		Electronic flatDiscountProduct = new Electronic("iPhone 13", 800, "4 GB RAM, 256 GB SSD", seasonalDiscount,
-				"Apple", "2 years");
-
-		System.out.println("iPhone 13 price after Discount: " + flatDiscountProduct.getPriceAfterDiscount());
 
 		int numberExit = 10;
 
@@ -105,11 +98,6 @@ public class WebshopConsoleAppl {
 				displayProductsInCart();
 				break;
 
-			case 6:
-
-				addElectronics();
-				break;
-
 			case 0:
 
 				System.out.println("Thank you for visiting bol.com");
@@ -133,31 +121,9 @@ public class WebshopConsoleAppl {
 		System.out.println("3. Place an Order");
 		System.out.println("4. Add Product to ShoppingCart");
 		System.out.println("5. Display Products in Shopping Cart");
-		System.out.println("6. Add Electronic Product");
 
 		System.out.println("0. Exit");
 		System.out.print("Enter number: ");
-
-	}
-
-	private void addElectronics() {
-
-		System.out.print("Enter product name: ");
-		String name = scanner.nextLine();
-
-		System.out.print("Enter product price: ");
-		double price = scanner.nextDouble();
-
-		System.out.print("Enter product description: ");
-		String description = scanner.nextLine();
-
-		// Add other specific attributes of the electronic product
-		// Electronic electronicProduct = new Electronic(name, price, description,
-		// electronicProduct.getBrand(), electronicProduct.getWarrantyPeriod());
-		Electronic electronicProduct = new Electronic(name, price, description, "Apple", "2 years");
-
-		products.add(electronicProduct);
-		System.out.println(name + " has been added to the product list.");
 
 	}
 

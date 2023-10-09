@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Webshopmini {
+module miniwb {
 }
