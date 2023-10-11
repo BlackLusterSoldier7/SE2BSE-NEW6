@@ -6,23 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Presentation/1.0.0": {
-        "dependencies": {
-          "Domain": "1.0.0"
-        },
-        "runtime": {
-          "Presentation.dll": {}
-        }
-      },
-      "Domain/1.0.0": {
-        "dependencies": {
-          "Infrastructure": "1.0.0",
-          "Shared": "1.0.0"
-        },
-        "runtime": {
-          "Domain.dll": {}
-        }
-      },
       "Infrastructure/1.0.0": {
         "dependencies": {
           "Shared": "1.0.0"
@@ -39,16 +22,6 @@
     }
   },
   "libraries": {
-    "Presentation/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,

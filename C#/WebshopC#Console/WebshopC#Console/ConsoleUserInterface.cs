@@ -1,4 +1,6 @@
-﻿namespace WebshopC_Console
+﻿
+
+namespace WebshopC_Console
 {
     public class ConsoleUserInterface
     {

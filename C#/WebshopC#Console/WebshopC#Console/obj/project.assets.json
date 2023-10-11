@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Infrastructure": "1.0.0",
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
       "Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -28,6 +42,11 @@
     }
   },
   "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
     "Infrastructure/1.0.0": {
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
@@ -41,8 +60,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Infrastructure >= 1.0.0",
-      "Shared >= 1.0.0"
+      "Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -77,11 +95,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Infrastructure\\Infrastructure.csproj"
-            },
-            "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Shared\\Shared.csproj": {
-              "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Shared\\Shared.csproj"
+            "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Domain\\Domain.csproj"
             }
           }
         }
