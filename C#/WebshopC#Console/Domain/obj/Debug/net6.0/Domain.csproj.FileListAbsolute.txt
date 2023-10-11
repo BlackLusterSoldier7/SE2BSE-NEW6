@@ -1,5 +1,0 @@
-C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
-C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
-C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
-C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
