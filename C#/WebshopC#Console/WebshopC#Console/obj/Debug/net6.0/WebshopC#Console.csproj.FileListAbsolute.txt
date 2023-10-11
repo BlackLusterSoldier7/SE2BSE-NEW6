@@ -1,0 +1,14 @@
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\bin\Debug\net6.0\WebshopC#Console.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\bin\Debug\net6.0\WebshopC#Console.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\bin\Debug\net6.0\WebshopC#Console.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\bin\Debug\net6.0\WebshopC#Console.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\bin\Debug\net6.0\WebshopC#Console.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.AssemblyInfoInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.AssemblyInfo.cs
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.csproj.CoreCompileInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\refint\WebshopC#Console.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\WebshopC#Console.genruntimeconfig.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\ref\WebshopC#Console.dll

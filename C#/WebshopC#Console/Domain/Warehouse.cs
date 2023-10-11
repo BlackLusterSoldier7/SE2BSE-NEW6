@@ -3,150 +3,157 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebshopC_Console;
 
-public class Warehouse
+namespace Domain
 {
 
-
-    public List<Entry> Entries { get; private set; }
-
-    private List<Product> products;
-
-
-
-
-
-
-
-    public Warehouse()
+    public class Warehouse
     {
 
-        Entries = new List<Entry>();
-        products = new List<Product>();
-    }
 
 
 
-    public void AddProduct(Product product, int amount)
-    {
+        public List<Entry> Entries { get; private set; }
 
-        if (product == null)
+        private List<Product> products;
+
+
+
+
+
+
+
+        public Warehouse()
         {
 
-
-            return; // exit method 
+            Entries = new List<Entry>();
+            products = new List<Product>();
         }
 
 
-        bool productFound = false;
 
-        foreach (Entry entry in Entries)
+        public void AddProduct(Product product, int amount)
         {
 
-
-            if (entry.GetProduct() == product)
+            if (product == null)
             {
 
-                entry.AddAmount(amount);
 
-                productFound = true;
-
-                break; // exit the loop. 
-
-
+                return; // exit method 
             }
 
 
+            bool productFound = false;
 
-        }
-
-
-
-        if (!productFound)
-        {
-
-
-            Entry newEntry = new Entry(product);
-            newEntry.AddAmount(amount);
-            Entries.Add(newEntry);
-
-
-        }
-
-
-
-
-    }
-
-
-    // 
-
-
-
-
-    public int DeleteProduct(Product product, int amount)
-    {
-
-        foreach (Entry entry in Entries)
-        {
-
-            if (entry.GetProduct() == product)
+            foreach (Entry entry in Entries)
             {
 
 
-                entry.DeleteAmount(amount);
-
-                if (entry.GetAmount() <= 0)
+                if (entry.GetProduct() == product)
                 {
-                    Entries.Remove(entry);
+
+                    entry.AddAmount(amount);
+
+                    productFound = true;
+
+                    break; // exit the loop. 
+
+
                 }
 
 
 
-                return entry.GetAmount();
             }
 
-        }
 
 
-        // If no matching entry is found, return 0. 
-        return 0;
-    }
-
-
-
-
-
-
-
-
-    public double GetProductPrice(Product productToFind)
-    {
-
-        foreach (Product product in products)
-        {
-
-            if (product.Name == productToFind.Name)
+            if (!productFound)
             {
 
-                return product.Price;
+
+                Entry newEntry = new Entry(product);
+                newEntry.AddAmount(amount);
+                Entries.Add(newEntry);
+
 
             }
+
+
+
 
         }
 
 
-        // Product not found in the warehouse 
-        return 0;
+        // 
+
+
+
+
+        public int DeleteProduct(Product product, int amount)
+        {
+
+            foreach (Entry entry in Entries)
+            {
+
+                if (entry.GetProduct() == product)
+                {
+
+
+                    entry.DeleteAmount(amount);
+
+                    if (entry.GetAmount() <= 0)
+                    {
+                        Entries.Remove(entry);
+                    }
+
+
+
+                    return entry.GetAmount();
+                }
+
+            }
+
+
+            // If no matching entry is found, return 0. 
+            return 0;
+        }
+
+
+
+
+
+
+
+
+        public double GetProductPrice(Product productToFind)
+        {
+
+            foreach (Product product in products)
+            {
+
+                if (product.Name == productToFind.Name)
+                {
+
+                    return product.Price;
+
+                }
+
+            }
+
+
+            // Product not found in the warehouse 
+            return 0;
+
+
+
+        }
+
+
+
 
 
 
     }
 
-
-
-
-
-
 }
+

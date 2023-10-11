@@ -9,10 +9,10 @@ namespace Shared
     public enum OrderStatus
     {
 
-        Processing, 
-        Shipped, 
-        Deliverd, 
-        Canceled 
+        Processing,
+        Shipped,
+        Deliverd,
+        Canceled
 
 
     }

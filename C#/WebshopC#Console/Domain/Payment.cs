@@ -16,7 +16,7 @@ namespace Domain
 
         public PaymentStatus Status { get; private set; } // Current status of the payment 
 
-        public double Amount { get; } 
+        public double Amount { get; }
 
 
         public Payment(Order order)
@@ -25,7 +25,7 @@ namespace Domain
             RelatedOrder = order;
             Amount = order.CalculateTotal();
             PaymentDate = DateTime.Now;
-            Status = PaymentStatus.Pending;  
+            Status = PaymentStatus.Pending;
 
         }
 

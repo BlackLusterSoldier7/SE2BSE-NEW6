@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebshopC_Console
+namespace Domain
 {
     public class Product
     {
@@ -13,7 +13,7 @@ namespace WebshopC_Console
         private string description;
         private double price;
         private int amount;
-        private List<Review> reviews; 
+        private List<Review> reviews;
 
 
 
@@ -25,7 +25,7 @@ namespace WebshopC_Console
             this.name = name;
             this.description = description;
             this.price = price;
-            this.amount = amount; 
+            this.amount = amount;
         }
 
 

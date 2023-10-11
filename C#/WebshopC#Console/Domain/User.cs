@@ -1,31 +1,39 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class User
+namespace Domain
 {
-
-    public string Username { get; }
-    public string Password { get; }
-    public string Email { get; }
-    public string firstname { get; }
-    public string lastname { get; }
-
-
-    public Shoppingcart shoppingCart { get; }
-  
-
-    public User(string username)
+    public class User
     {
 
-        this.Username = username; 
+        public string Username { get; }
+        public string Password { get; }
+        public string Email { get; }
+        public string firstname { get; }
+        public string lastname { get; }
+
+
+        public Shoppingcart shoppingCart { get; }
+
+
+        public User(string username)
+        {
+
+            this.Username = username;
+        }
+
+
+
+
+
+
+
+
+
+
     }
-
-
-
-
-
-
-
-
-
 
 }

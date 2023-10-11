@@ -15,9 +15,9 @@ namespace Domain
         public List<Entry> Items { get; private set; } // Items being purchased in this order 
 
         public DateTime OrderDate { get; } // The date and time when the order was made 
-    
+
         public string Shippingaddress { get; } // Address to which the items should be shipped
-                                               
+
         public OrderStatus Status { get; private set; }
 
 
@@ -29,7 +29,7 @@ namespace Domain
             Buyer = buyer;
             Items = new List<Entry>();
             OrderDate = DateTime.Now;
-            Status = OrderStatus.Processing; 
+            Status = OrderStatus.Processing;
 
         }
 
@@ -41,14 +41,14 @@ namespace Domain
             foreach (Entry item in Items)
             {
 
-                double itemCost = item.GetProduct().Price * item.GetAmount(); 
+                double itemCost = item.GetProduct().Price * item.GetAmount();
 
 
-                totalCost = totalCost + itemCost; 
+                totalCost = totalCost + itemCost;
 
             }
 
-            return totalCost; 
+            return totalCost;
 
         }
 

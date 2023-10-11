@@ -9,10 +9,10 @@ namespace Shared
     public enum PaymentStatus
     {
 
-        Pending, 
-        Completed, 
-        Failed, 
-        Refuned 
+        Pending,
+        Completed,
+        Failed,
+        Refuned
 
 
     }

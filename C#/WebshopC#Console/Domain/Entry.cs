@@ -1,60 +1,66 @@
 ﻿using System;
-using WebshopC_Console;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class Entry
+namespace Domain
 {
-
-    private Product product;
-    private int amount;
-
-    public Entry(Product product)
-    {
-        this.product = product;
-        amount = 0;
-    }
-
-
-    public int GetAmount()
-    {
-        return amount;
-    }
-
-
-    public Product GetProduct()
+    public class Entry
     {
 
-        return product;
+        private Product product;
+        private int amount;
 
-
-    }
-
-
-    public void AddAmount(int stock)
-    {
-
-        amount = amount + stock;
-
-    }
-
-
-    public void DeleteAmount(int stock)
-    {
-
-
-        amount = amount - stock;
-
-        // check on negative amount
-        if (amount < 0)
+        public Entry(Product product)
         {
+            this.product = product;
             amount = 0;
+        }
+
+
+        public int GetAmount()
+        {
+            return amount;
+        }
+
+
+        public Product GetProduct()
+        {
+
+            return product;
 
 
         }
 
 
+        public void AddAmount(int stock)
+        {
+
+            amount = amount + stock;
+
+        }
+
+
+        public void DeleteAmount(int stock)
+        {
+
+
+            amount = amount - stock;
+
+            // check on negative amount
+            if (amount < 0)
+            {
+                amount = 0;
+
+
+            }
+
+
+        }
+
+
+
+
     }
-
-
-
-
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebshopC_Console
+namespace Domain
 {
     public class Review
     {
