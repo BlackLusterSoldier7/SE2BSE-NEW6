@@ -12,3 +12,4 @@ C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC
 C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\Presentation.pdb
 C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\Presentation.genruntimeconfig.cache
 C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\ref\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Console\WebshopC#Console\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache

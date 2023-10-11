@@ -1,11 +1,49 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
+        }
+      },
+      "Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+    },
+    "Shared/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Shared.csproj",
+      "msbuildProject": "../Shared/Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Infrastructure >= 1.0.0",
+      "Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\HP-Spectre\\.nuget\\packages\\": {},
@@ -38,7 +76,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Infrastructure\\Infrastructure.csproj"
+            },
+            "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Console\\Shared\\Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
