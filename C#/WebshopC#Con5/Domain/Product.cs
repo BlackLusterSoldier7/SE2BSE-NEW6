@@ -12,20 +12,21 @@ namespace Domain
         private string name;
         private string description;
         private double price;
-        private int amount;
+       
         private List<Review> reviews;
 
 
 
 
 
-        public Product(string name, string description, double price, int amount)
+        public Product(string name, string description, double price)
         {
 
             this.name = name;
             this.description = description;
             this.price = price;
-            this.amount = amount;
+            this.reviews = new List<Review>(); // Initialize the reviews list 
+        
         }
 
 
@@ -55,11 +56,30 @@ namespace Domain
         }
 
 
-        public int Amount
+    
+
+        public void AddReview(Review review)
         {
 
-            get { return amount; }
+            if(review != null)
+            {
+                reviews.Add(review); 
+            }
+
         }
+
+
+        // method to get all reviews for a product 
+        public List<Review> GetAllReviews()
+        {
+
+            return new List<Review>(reviews); // Return a copy to prevent external modification
+
+            
+        }
+
+
+
 
 
 
