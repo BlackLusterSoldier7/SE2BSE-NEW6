@@ -58,13 +58,13 @@ namespace Domain
 
     
 
-        public void AddReview(Review review)
+        
+        public bool AddReview(Review review)
         {
 
-            if(review != null)
-            {
-                reviews.Add(review); 
-            }
+            if (review == null) return false;
+            reviews.Add(review);
+            return true; 
 
         }
 

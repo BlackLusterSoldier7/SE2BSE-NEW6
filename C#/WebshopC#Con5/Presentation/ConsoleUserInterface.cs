@@ -139,7 +139,7 @@ namespace Presentation
             Console.Write("Enter amount: ");
             int amount = int.Parse(Console.ReadLine());
 
-            Product sampleProduct = new Product("Sample Product", "This is a sample product", 15.75, amount);
+            Product sampleProduct = new Product("Sample Product", "This is a sample product", 15.75);
             shoppingcart.AddProductToShoppingcart(sampleProduct, amount);
 
             Console.WriteLine($"{amount} of {sampleProduct.Name} added to cart.");
@@ -186,7 +186,7 @@ namespace Presentation
             Console.WriteLine("Enter your rating (1-5): ");
             int rating = int.Parse(Console.ReadLine());
 
-            Product sampleProduct = new Product("Sample Product", "dummy data", 19.35, 5);
+            Product sampleProduct = new Product("Sample Product", "dummy data", 19.35);
             Review newReview = new Review(currentUser, sampleProduct, reviewText, rating);
 
             Console.WriteLine("Review submitted");
@@ -229,7 +229,7 @@ namespace Presentation
                 string username = Console.ReadLine();
 
 
-                currentUser = new User(username);
+                currentUser = new User(username, shoppingcart);
                 Console.WriteLine($"Logged in as {username}.");
 
             }
@@ -240,7 +240,7 @@ namespace Presentation
                 Console.Write("Enter a new username: ");
                 string newUsername = Console.ReadLine();
 
-                currentUser = new User(newUsername);
+                currentUser = new User(newUsername, shoppingcart);
                 Console.WriteLine($"Registered and logged in as {newUsername}.");
 
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,10 @@ namespace Domain
 {
     public class Shoppingcart
     {
-
-
-
         private Warehouse warehouse;
-
-
         private List<Entry> cartEntries;
+        private PaymentService paymentService; 
+
 
 
         // shoppingcart created, it needs to know about the warehouse 
@@ -130,6 +128,10 @@ namespace Domain
         }
 
 
+        public ReadOnlyCollection<Entry> ViewProducts()
+        {
+            return new ReadOnlyCollection<Entry>(cartEntries);
+        }
 
 
     }

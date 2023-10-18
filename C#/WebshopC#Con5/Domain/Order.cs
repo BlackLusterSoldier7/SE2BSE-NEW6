@@ -10,8 +10,13 @@ namespace Domain
     public class Order
     {
 
+        private double sum;
+        private string paymentMethod;
+        private DateOnly paymentsDate;
+        private string ibanAccountOf;
+        private string ibanAccountTo;
 
-        public User Buyer { get; private set; } // The user who made the order 
+
         public List<Entry> Items { get; private set; } // Items being purchased in this order 
 
         public DateTime OrderDate { get; } // The date and time when the order was made 
@@ -22,11 +27,19 @@ namespace Domain
 
 
 
-        public Order(User buyer)
+        public Order(double sum, string paymentMethod, DateOnly paymentsDate,
+            string ibanAccountOf, string ibanAccountTo)
         {
+            this.sum = sum;
+            this.paymentMethod = paymentMethod;
+            this.paymentsDate = paymentsDate;
+
+            this.ibanAccountOf = ibanAccountOf;
+            this.ibanAccountTo = ibanAccountTo;
 
 
-            Buyer = buyer;
+
+
             Items = new List<Entry>();
             OrderDate = DateTime.Now;
             Status = OrderStatus.Processing;
