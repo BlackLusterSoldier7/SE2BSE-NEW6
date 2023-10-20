@@ -10,20 +10,21 @@ namespace Domain
     public class User
     {
 
-        public string Username { get; }
-        public string Password { get; }
-        public string Email { get; }
-        public string firstname { get; }
-        public string lastname { get; }
+        public string Username { get; private set; }
+        private string Password { get; set; }
+        public string Email { get; private set; }
+        public string firstname { get; private set; }
+        public string lastname { get; private set; }
 
 
-        public Shoppingcart shoppingCart { get; }
+        public Shoppingcart shoppingCart { get; private set; }
 
 
         public User(string username, Shoppingcart shoppingcart)
         {
 
             this.Username = username;
+            this.shoppingCart = shoppingcart; 
         }
 
         public bool AddReview(Product product, int score, string comment)
@@ -36,7 +37,7 @@ namespace Domain
 
             bool isReviewedAdded = product.AddReview(newReview);
 
-            return isReviewedAdded; 
+            return isReviewedAdded;
 
 
 
