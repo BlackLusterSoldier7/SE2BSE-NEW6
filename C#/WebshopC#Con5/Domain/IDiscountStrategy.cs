@@ -9,7 +9,7 @@ namespace Domain
     public interface IDiscountStrategy
     {
 
-        double ApplyDiscount(double originalPrice);
+        double ApplyDiscount(double originalPrice, Shoppingcart shoppingcart);
 
 
     }

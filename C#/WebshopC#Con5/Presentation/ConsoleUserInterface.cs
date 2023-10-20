@@ -139,7 +139,7 @@ namespace Presentation
             Console.Write("Enter amount: ");
             int amount = int.Parse(Console.ReadLine());
 
-            Product sampleProduct = new Product("Sample Product", "This is a sample product", 15.75);
+            Product sampleProduct = new Product("Sample Product", "This is a sample product", 15.75, Shared.ProductCategory.Books);
             shoppingcart.AddProductToShoppingcart(sampleProduct, amount);
 
             Console.WriteLine($"{amount} of {sampleProduct.Name} added to cart.");
@@ -186,7 +186,7 @@ namespace Presentation
             Console.WriteLine("Enter your rating (1-5): ");
             int rating = int.Parse(Console.ReadLine());
 
-            Product sampleProduct = new Product("Sample Product", "dummy data", 19.35);
+            Product sampleProduct = new Product("Sample Product", "dummy data", 19.35, Shared.ProductCategory.Motorcycles);
             Review newReview = new Review(currentUser, sampleProduct, reviewText, rating);
 
             Console.WriteLine("Review submitted");
