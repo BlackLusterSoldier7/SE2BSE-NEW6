@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,18 @@ namespace Infrastructure.DTO
 {
     public class ProductDTO
     {
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public double Price { get; private set; }
-        public int Amount { get; private set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public double Price { get; set; }
+        public int Amount { get; set; }
+
+        public ProductCategory Category { get; set; }
+        public List<ReviewDTO> Reviews { get; set; }
+
+        public ProductDTO()
+        {
+
+        }
 
 
 
