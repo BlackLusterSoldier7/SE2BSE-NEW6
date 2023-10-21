@@ -1,7 +1,11 @@
 ﻿using Domain;
+using Infrastructure;
+using Infrastructure.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +17,13 @@ namespace Presentation
         private Warehouse warehouse = new Warehouse();
         private Shoppingcart shoppingcart;
         private User currentUser;
+        private ProductRepository productRepository = new ProductRepository();
+        private UserRepository userRepository = new UserRepository();
+
+
+
+
+
 
         public static void Main(string[] args)
         {
@@ -66,14 +77,8 @@ namespace Presentation
                     default:
                         Console.WriteLine("Invalid choice.");
                         break;
-
                 }
-
-
-
-
             }
-
         }
 
 
@@ -119,11 +124,15 @@ namespace Presentation
 
         private void DisplayProducts()
         {
+
             Console.WriteLine("Products:");
-            Console.WriteLine("1. iPhone 15 Pro MAX 512 GB");
-            Console.WriteLine("2. HP laptop i9 32 RAM 1 TB SSD");
-            Console.WriteLine("3. JP laptop i9 32 RAM 1 TB SSD");
-            Console.WriteLine("4. GP laptop i9 32 RAM 1 TB SSD");
+
+            List<ProductDTO> products = productRepository.GetAllProducts();
+            for (int i = 0; i < products.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
+
+            }
 
 
         }
@@ -131,20 +140,25 @@ namespace Presentation
 
         private void AddProductToCart()
         {
-
-
-            Console.WriteLine("Enter product number to add to cart: ");
+            Console.Write("Enter product number to add to cart: ");
             int productNumber = int.Parse(Console.ReadLine());
-
             Console.Write("Enter amount: ");
             int amount = int.Parse(Console.ReadLine());
 
-            Product sampleProduct = new Product("Sample Product", "This is a sample product", 15.75, Shared.ProductCategory.Books);
-            shoppingcart.AddProductToShoppingcart(sampleProduct, amount);
+            List<ProductDTO> products = productRepository.GetAllProducts();
 
-            Console.WriteLine($"{amount} of {sampleProduct.Name} added to cart.");
+            if (productNumber <= 0 || productNumber > products.Count)
+            {
+                Console.WriteLine("Invalid product number. ");
+                return;
+            }
 
+            ProductDTO selectedProductDTO = products[productNumber - 1];
+            Product selectedProduct = new Product(selectedProductDTO.Name, selectedProductDTO.Description,
+                selectedProductDTO.Price, selectedProductDTO.Category);
+            shoppingcart.AddProductToShoppingcart(selectedProduct, amount);
 
+            Console.WriteLine($"{amount} {selectedProduct.Name}(s) added to shoppingcart. ");
 
         }
 
@@ -166,33 +180,37 @@ namespace Presentation
         private void WriteReview()
         {
 
-
             if (currentUser == null)
             {
-
-
                 Console.WriteLine("Please login or register first.");
                 return;
-
             }
 
 
-            Console.WriteLine("Enter product number to review: ");
+            Console.Write("Enter product number to review: ");
             int productNumber = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Enter your review: ");
+            Console.Write("Enter your review: ");
             string reviewText = Console.ReadLine();
 
-            Console.WriteLine("Enter your rating (1-5): ");
+            Console.Write("Enter your rating (1-5): ");
             int rating = int.Parse(Console.ReadLine());
 
-            Product sampleProduct = new Product("Sample Product", "dummy data", 19.35, Shared.ProductCategory.Motorcycles);
-            Review newReview = new Review(currentUser, sampleProduct, reviewText, rating);
+            List<ProductDTO> products = productRepository.GetAllProducts();
+            if (productNumber <= 0 || productNumber > products.Count)
+            {
+                Console.WriteLine("Invalid product number: ");
+                return;
+            }
+
+
+            ProductDTO selectedProductDTO = products[productNumber - 1];
+            Product selectedProduct = new Product(selectedProductDTO.Name, selectedProductDTO.Description, selectedProductDTO.Price,
+                selectedProductDTO.Category);
+
+            Review newReview = new Review(currentUser, selectedProduct, reviewText, rating);
 
             Console.WriteLine("Review submitted");
-
-
-
 
 
 
@@ -204,10 +222,35 @@ namespace Presentation
         private void ViewReviews()
         {
 
-            Console.WriteLine("Reviews for sample dummy product:");
-            Console.WriteLine("User A: Good product - 5/5");
-            Console.WriteLine("User B: Not what I expected. - 2/5");
-            Console.WriteLine("User C: Good product, but breaks fast. - 3/5");
+
+            Console.WriteLine("Enter product number to view reviews: ");
+            int productNumber = int.Parse(Console.ReadLine());
+
+            List<ProductDTO> products = productRepository.GetAllProducts();
+
+            if (productNumber <= 0 || productNumber > products.Count)
+            {
+                Console.WriteLine("Invalid product number.");
+                return;
+
+            }
+
+            ProductDTO selectedProductDTO = products[productNumber - 1];
+            Console.WriteLine($"Reviews for {selectedProductDTO.Name}:");
+
+            if (selectedProductDTO.Reviews.Count == 0)
+            {
+
+                Console.WriteLine("No reviews available for this product.");
+                return;
+
+            }
+
+            foreach (ReviewDTO review in selectedProductDTO.Reviews)
+            {
+                Console.WriteLine($"{review.Comment} - {review.Rating}/5");
+            }
+
 
 
 
@@ -218,6 +261,7 @@ namespace Presentation
 
         private void LoginOrRegister()
         {
+
             Console.WriteLine("1. Login");
             Console.WriteLine("2. Register");
             Console.Write("Choose option: ");
@@ -225,25 +269,54 @@ namespace Presentation
 
             if (option == 1)
             {
+
                 Console.Write("Enter username: ");
                 string username = Console.ReadLine();
 
 
-                currentUser = new User(username, shoppingcart);
-                Console.WriteLine($"Logged in as {username}.");
+                List<UserDTO> users = userRepository.GetAllUsers();
+                UserDTO userDTO = null;
+
+                foreach (UserDTO u in users)
+                {
+                    if (u.Username == username)
+                    {
+                        userDTO = u;
+                        break;
+                    }
+                }
+
+                if (userDTO != null)
+                {
+                    currentUser = new User(userDTO.Username, shoppingcart);
+                    Console.WriteLine($"Logged in as {username}.");
+                }
+                else
+                {
+                    Console.WriteLine("User not found.");
+                }
+
 
             }
-
             else if (option == 2)
             {
-
                 Console.Write("Enter a new username: ");
                 string newUsername = Console.ReadLine();
 
                 currentUser = new User(newUsername, shoppingcart);
                 Console.WriteLine($"Registered and logged in as {newUsername}.");
 
+
             }
+            else
+            {
+                Console.WriteLine("Invalid option. ");
+            }
+
+
+
+
+
 
 
         }
