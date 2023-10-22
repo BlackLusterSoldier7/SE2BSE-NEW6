@@ -1,16 +1,33 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain
 {
+
+    // Entry eventueel veranderen naar InventoryItem
     public class Entry
     {
 
         private Product product;
         private int amount;
+
+
+
+        public int Amount
+        {
+            get { return amount; }
+        }
+
+
+        public Product Product
+        {
+            get { return product; }
+        }
+
+
 
         public Entry(Product product)
         {
@@ -19,25 +36,24 @@ namespace Domain
         }
 
 
-        public int GetAmount()
-        {
-            return amount;
-        }
 
 
-        public Product GetProduct()
-        {
-
-            return product;
 
 
-        }
+
+
+
 
 
         public void AddAmount(int stock)
         {
 
-            amount = amount + stock;
+            if (stock < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(stock), "Stock cannot be negative.");
+
+            }
+            amount += stock;
 
         }
 
@@ -46,21 +62,9 @@ namespace Domain
         {
 
 
-            amount = amount - stock;
-
-            // check on negative amount
-            if (amount < 0)
-            {
-                amount = 0;
-
-
-            }
-
-
+            if (stock < 0) throw new ArgumentOutOfRangeException(nameof(stock), "Stock cannot be negative.");
+            if (stock > amount) throw new InvalidOperationException("Not enough to delete");
+            amount -= stock;
         }
-
-
-
-
     }
 }
