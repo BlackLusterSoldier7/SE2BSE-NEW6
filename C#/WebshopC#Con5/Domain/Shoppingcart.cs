@@ -38,7 +38,7 @@ namespace Domain
             foreach (Entry entry in cartEntries)
             {
 
-                if (entry.GetProduct() == productToAdd)
+                if (entry.Product == productToAdd)
                 {
 
                     foundEntry = entry;
@@ -74,30 +74,47 @@ namespace Domain
 
 
 
-
         public void DeleteProduct(Product productToRemove, int amount)
         {
 
+            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be greater than 0.");
 
-            foreach (Entry entry in cartEntries)
+            Entry entryToRemove = null; 
+            foreach(Entry entry in cartEntries)
             {
 
-                // descrease the amount of the product in the shoppingcart. 
-                entry.DeleteAmount(amount);
-
-                // if there is none of the product left in the cart, remove its entry
-                if (entry.GetAmount() <= 0)
+                if(entry.Product == productToRemove)
                 {
-
-                    cartEntries.Remove(entry);
-
+                    entryToRemove = entry;
+                    break; 
                 }
-                break;
 
             }
 
 
+            if(entryToRemove != null)
+            {
+
+                entryToRemove.DeleteAmount(amount); 
+                if(entryToRemove.Amount <= 0)
+                {
+                    cartEntries.Remove(entryToRemove); 
+                }
+
+            } else
+            {
+                throw new InvalidOperationException("Product not found in shopping cart. ");
+            }
+
+
         }
+       
+
+
+
+
+
+
 
 
 
@@ -111,8 +128,8 @@ namespace Domain
             foreach (Entry entry in cartEntries)
             {
 
-                double productPrice = warehouse.GetProductPrice(entry.GetProduct());
-                totalPrice = totalPrice + (entry.GetAmount() * productPrice);
+                double productPrice = warehouse.GetProductPrice(entry.Product);
+                totalPrice = totalPrice + (entry.Amount * productPrice);
 
             }
 

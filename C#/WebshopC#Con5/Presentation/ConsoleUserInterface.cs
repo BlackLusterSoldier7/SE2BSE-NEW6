@@ -73,6 +73,9 @@ namespace Presentation
                         LoginOrRegister();
                         break;
                     case 7:
+                        HandlePayment();
+                        break;
+                    case 8:
                         return;
                     default:
                         Console.WriteLine("Invalid choice.");
@@ -94,7 +97,8 @@ namespace Presentation
             Console.WriteLine("4. Write a Review");
             Console.WriteLine("5. View Reviews for a Product");
             Console.WriteLine("6. Login/Register");
-            Console.WriteLine("7. Exit");
+            Console.WriteLine("7. Make a Payment");
+            Console.WriteLine("8. Exit");
             Console.WriteLine("Enter your choice: ");
 
 
@@ -320,6 +324,38 @@ namespace Presentation
 
 
         }
+
+
+
+        private void HandlePayment()
+        {
+            if (currentUser == null)
+            {
+                Console.WriteLine("Please login or register before making a payment.");
+                return;
+            }
+
+            Order order = new Order();
+            PaymentService paymentService = new PaymentService(shoppingcart);
+            PaymentResultDTO paymentResult = paymentService.DoPayment(order);
+
+
+            if (paymentResult.Success)
+            {
+                Console.WriteLine(paymentResult.Message);
+                Console.WriteLine("Total amount paid: eur" + paymentResult.AmountPaid);
+            }
+            else
+            {
+                Console.WriteLine(paymentResult.Message);
+            }
+
+
+
+
+
+        }
+
 
 
 

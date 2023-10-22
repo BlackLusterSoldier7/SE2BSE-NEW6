@@ -10,7 +10,7 @@ namespace Domain
     public class Order
     {
 
-        private double sum;
+        private double totalCost;
         private string paymentMethod;
         private DateOnly paymentsDate;
         private string ibanAccountOf;
@@ -26,11 +26,18 @@ namespace Domain
         public OrderStatus Status { get; private set; }
 
 
+        public Order()
+        {
 
-        public Order(double sum, string paymentMethod, DateOnly paymentsDate,
+        }
+
+
+
+
+        public Order(string paymentMethod, DateOnly paymentsDate,
             string ibanAccountOf, string ibanAccountTo)
         {
-            this.sum = sum;
+
             this.paymentMethod = paymentMethod;
             this.paymentsDate = paymentsDate;
 
@@ -53,21 +60,15 @@ namespace Domain
 
             foreach (Entry item in Items)
             {
-
-                double itemCost = item.GetProduct().Price * item.GetAmount();
-
-
-                totalCost = totalCost + itemCost;
-
+                Product product = item.Product;
+                if (product != null)
+                {
+                    double itemCost = product.Price * item.Amount;
+                    totalCost += itemCost;
+                }
             }
-
+            this.totalCost = totalCost;
             return totalCost;
-
         }
-
-
-
-
-
     }
 }

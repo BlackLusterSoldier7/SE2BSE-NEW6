@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Infrastructure.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Domain
 
         private List<Product> products;
 
-
+        private List<ProductDTO> productDTOs; 
 
 
 
@@ -27,6 +28,7 @@ namespace Domain
 
             Entries = new List<Entry>();
             products = new List<Product>();
+            productDTOs = new List<ProductDTO>(); 
         }
 
 
@@ -48,7 +50,7 @@ namespace Domain
             {
 
 
-                if (entry.GetProduct() == product)
+                if (entry.Product == product)
                 {
 
                     entry.AddAmount(amount);
@@ -94,20 +96,20 @@ namespace Domain
             foreach (Entry entry in Entries)
             {
 
-                if (entry.GetProduct() == product)
+                if (entry.Product == product)
                 {
 
 
                     entry.DeleteAmount(amount);
 
-                    if (entry.GetAmount() <= 0)
+                    if (entry.Amount <= 0)
                     {
                         Entries.Remove(entry);
                     }
 
 
 
-                    return entry.GetAmount();
+                    return entry.Amount; 
                 }
 
             }
@@ -145,6 +147,21 @@ namespace Domain
 
 
 
+        }
+
+
+        public List<Product> GetProducts()
+        {
+            // Convert the list of ProductDTOs to a list of Products 
+            List<Product> products = new List<Product>(); 
+
+            foreach(ProductDTO productDTO in productDTOs)
+            {
+                Product product = new Product(productDTO.Name, productDTO.Description,
+                    productDTO.Price, productDTO.Category);
+                products.Add(product); 
+            }
+            return products; 
         }
 
 
