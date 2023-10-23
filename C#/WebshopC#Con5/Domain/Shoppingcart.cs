@@ -129,15 +129,15 @@ namespace Domain
             {
 
                 double productPrice = warehouse.GetProductPrice(entry.Product);
-                totalPrice = totalPrice + (entry.Amount * productPrice);
-
+                totalPrice += entry.Amount * productPrice;
+                
             }
 
             return totalPrice;
 
         }
 
-
+        
         public void EmptyShoppingcart()
         {
 

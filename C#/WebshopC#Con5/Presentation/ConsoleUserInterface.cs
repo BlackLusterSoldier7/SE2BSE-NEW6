@@ -168,17 +168,29 @@ namespace Presentation
 
 
 
+
         private void ViewCart()
         {
 
-
-
             Console.WriteLine("Your Shoppingcart:");
-            double total = shoppingcart.CalculateTotalPrice();
-            Console.WriteLine($"Total Price: ${total}");
+
+            var cartItems = shoppingcart.ViewProducts();
+
+            foreach (var item in cartItems)
+
+            {
+                Console.WriteLine($"{item.Product.Name} - ${item.Product.Price} x {item.Amount} = ${item.Product.Price * item.Amount} ");
+
+
+            }
+
+
 
 
         }
+
+
+
 
 
         private void WriteReview()

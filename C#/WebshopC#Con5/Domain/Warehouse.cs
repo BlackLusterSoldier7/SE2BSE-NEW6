@@ -143,7 +143,7 @@ namespace Domain
 
 
             // Product not found in the warehouse 
-            return 0;
+            return 10;
 
 
 

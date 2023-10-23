@@ -34,8 +34,17 @@ namespace Infrastructure
                     Firstname = "Burak",
                     Lastname = "B"
 
-                }
+                },
 
+                new UserDTO()
+                {
+
+                    Username = "test",
+                    Email = "test@outlook.com",
+                    Firstname = "test",
+                    Lastname = "test"
+
+                }
 
 
 
