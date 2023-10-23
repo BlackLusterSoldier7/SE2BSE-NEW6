@@ -193,6 +193,7 @@ namespace Presentation
 
 
 
+
         private void WriteReview()
         {
 
@@ -203,6 +204,7 @@ namespace Presentation
             }
 
 
+            DisplayProducts();
             Console.Write("Enter product number to review: ");
             int productNumber = int.Parse(Console.ReadLine());
 
@@ -212,26 +214,34 @@ namespace Presentation
             Console.Write("Enter your rating (1-5): ");
             int rating = int.Parse(Console.ReadLine());
 
+
             List<ProductDTO> products = productRepository.GetAllProducts();
             if (productNumber <= 0 || productNumber > products.Count)
             {
-                Console.WriteLine("Invalid product number: ");
+                Console.WriteLine("Invalid product number.");
                 return;
             }
 
-
             ProductDTO selectedProductDTO = products[productNumber - 1];
-            Product selectedProduct = new Product(selectedProductDTO.Name, selectedProductDTO.Description, selectedProductDTO.Price,
-                selectedProductDTO.Category);
 
-            Review newReview = new Review(currentUser, selectedProduct, reviewText, rating);
+            ReviewDTO newReview = new ReviewDTO
+            {
 
-            Console.WriteLine("Review submitted");
+                Comment = reviewText,
+                Rating = rating
 
+            };
 
+            selectedProductDTO.Reviews.Add(newReview);
+            productRepository.UpdateProduct(selectedProductDTO.Name, selectedProductDTO); // Update the product in the repository 
+
+            Console.WriteLine("Review added successfully!");
 
 
         }
+
+
+
 
 
 

@@ -13,7 +13,7 @@ namespace Infrastructure.DTO
         public int Rating { get; set; }
 
 
-
+      
 
 
 

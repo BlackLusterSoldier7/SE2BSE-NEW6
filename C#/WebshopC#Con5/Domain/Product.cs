@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using Infrastructure.DTO;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,11 @@ namespace Domain
             get { return price; }
 
         }
+
+
+
+        
+
 
 
 
