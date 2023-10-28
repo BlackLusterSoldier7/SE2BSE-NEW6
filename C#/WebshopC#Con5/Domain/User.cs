@@ -20,11 +20,11 @@ namespace Domain
         public Shoppingcart shoppingCart { get; private set; }
 
 
-        public User(string username, Shoppingcart shoppingcart)
+        public User(string username, Warehouse warehouse)
         {
 
             this.Username = username;
-            this.shoppingCart = shoppingcart; 
+            shoppingCart = new Shoppingcart(warehouse);
         }
 
         public bool AddReview(Product product, int score, string comment)

@@ -77,7 +77,12 @@ namespace Domain
         public void DeleteProduct(Product productToRemove, int amount)
         {
 
-            if (amount <= 0) throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be greater than 0.");
+            if (amount <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Amount must be greater than 0.");
+
+            }
+
 
             Entry entryToRemove = null; 
             foreach(Entry entry in cartEntries)

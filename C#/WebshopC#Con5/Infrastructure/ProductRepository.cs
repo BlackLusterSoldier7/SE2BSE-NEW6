@@ -189,43 +189,7 @@ namespace Infrastructure
 
 
 
-        public bool UpdateProduct(string productName, ProductDTO updateProduct)
-        {
-
-
-            ProductDTO product = null;
-
-            foreach (ProductDTO p in products)
-            {
-
-                if (p.Name == productName)
-                {
-                    product = p;
-                    break;
-
-                }
-
-            }
-
-
-
-            if (product == null)
-            {
-                return false;
-            }
-
-
-
-            product.Name = updateProduct.Name;
-            product.Description = updateProduct.Description;
-            product.Price = updateProduct.Price;
-            product.Category = updateProduct.Category;
-            product.Reviews = updateProduct.Reviews;
-
-            return true;
-
-
-        }
+       
 
 
 

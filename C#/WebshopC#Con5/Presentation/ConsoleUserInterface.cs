@@ -14,11 +14,11 @@ namespace Presentation
     public class ConsoleUserInterface
     {
 
-        private Warehouse warehouse = new Warehouse();
-        private Shoppingcart shoppingcart;
+        private Warehouse warehouse;
+
         private User currentUser;
-        private ProductRepository productRepository = new ProductRepository();
-        private UserRepository userRepository = new UserRepository();
+        private ProductRepository productRepository;
+        private UserRepository userRepository;
 
 
 
@@ -37,7 +37,10 @@ namespace Presentation
 
         public ConsoleUserInterface()
         {
-            shoppingcart = new Shoppingcart(warehouse);
+            productRepository = new ProductRepository();
+            userRepository = new UserRepository();
+            warehouse = new Warehouse();
+
         }
 
         public void RunShop()
@@ -117,7 +120,7 @@ namespace Presentation
             if (!isValidNumber)
             {
                 Console.WriteLine("Please enter a valid number. ");
-                return 0;
+           
             }
             return choice;
 
@@ -130,6 +133,11 @@ namespace Presentation
         {
 
             Console.WriteLine("Products:");
+
+            // for each loop doen 
+            // warehouse repo aanmaken en die gebruiken 
+            // iterator onderzoeken voor GetAllProducts. Miljoenen database products 
+            // iterator is complex niet maken alleen onderzoek doen. Alleen als je tijd hebt 
 
             List<ProductDTO> products = productRepository.GetAllProducts();
             for (int i = 0; i < products.Count; i++)
@@ -157,10 +165,20 @@ namespace Presentation
                 return;
             }
 
+            if(amount <= 0)
+            {
+                Console.WriteLine("Amount must be greater or equal to 1 ");
+                return; 
+            }
+
+
+
             ProductDTO selectedProductDTO = products[productNumber - 1];
             Product selectedProduct = new Product(selectedProductDTO.Name, selectedProductDTO.Description,
                 selectedProductDTO.Price, selectedProductDTO.Category);
-            shoppingcart.AddProductToShoppingcart(selectedProduct, amount);
+
+
+            currentUser.shoppingCart.AddProductToShoppingcart(selectedProduct, amount);
 
             Console.WriteLine($"{amount} {selectedProduct.Name}(s) added to shoppingcart. ");
 
@@ -174,7 +192,7 @@ namespace Presentation
 
             Console.WriteLine("Your Shoppingcart:");
 
-            var cartItems = shoppingcart.ViewProducts();
+            var cartItems = currentUser.shoppingCart.ViewProducts();
 
             foreach (var item in cartItems)
 
@@ -222,6 +240,8 @@ namespace Presentation
                 return;
             }
 
+            // rating ook checken 
+
             ProductDTO selectedProductDTO = products[productNumber - 1];
 
             ReviewDTO newReview = new ReviewDTO
@@ -233,7 +253,9 @@ namespace Presentation
             };
 
             selectedProductDTO.Reviews.Add(newReview);
-            productRepository.UpdateProduct(selectedProductDTO.Name, selectedProductDTO); // Update the product in the repository 
+            
+
+
 
             Console.WriteLine("Review added successfully!");
 
@@ -314,7 +336,7 @@ namespace Presentation
 
                 if (userDTO != null)
                 {
-                    currentUser = new User(userDTO.Username, shoppingcart);
+                    currentUser = new User(userDTO.Username, warehouse);
                     Console.WriteLine($"Logged in as {username}.");
                 }
                 else
@@ -329,7 +351,7 @@ namespace Presentation
                 Console.Write("Enter a new username: ");
                 string newUsername = Console.ReadLine();
 
-                currentUser = new User(newUsername, shoppingcart);
+                currentUser = new User(newUsername, warehouse);
                 Console.WriteLine($"Registered and logged in as {newUsername}.");
 
 
@@ -358,7 +380,7 @@ namespace Presentation
             }
 
             Order order = new Order();
-            PaymentService paymentService = new PaymentService(shoppingcart);
+            PaymentService paymentService = new PaymentService(currentUser.shoppingCart);
             PaymentResultDTO paymentResult = paymentService.DoPayment(order);
 
 

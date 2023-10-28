@@ -3,25 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebshopC#Con5", "WebshopC#Con5\WebshopC#Con5.csproj", "{9BE4AEA3-34D5-4F18-9810-A77FE57AAE73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebshopC#Con5", "WebshopC#Con5\WebshopC#Con5.csproj", "{9BE4AEA3-34D5-4F18-9810-A77FE57AAE73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{9F863D81-CEB4-4F9F-AB8B-460FB03F664C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{9F863D81-CEB4-4F9F-AB8B-460FB03F664C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{3A829DE6-059A-4D3A-AD7C-63D35F3E0DAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{3A829DE6-059A-4D3A-AD7C-63D35F3E0DAA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BEE3EAF5-9C75-45AD-B2CF-8B142270A396} = {BEE3EAF5-9C75-45AD-B2CF-8B142270A396}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{82E4E0F0-2328-418F-90F3-C4FA054AE54E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{82E4E0F0-2328-418F-90F3-C4FA054AE54E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9F863D81-CEB4-4F9F-AB8B-460FB03F664C} = {9F863D81-CEB4-4F9F-AB8B-460FB03F664C}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{BEE3EAF5-9C75-45AD-B2CF-8B142270A396}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{BEE3EAF5-9C75-45AD-B2CF-8B142270A396}"
 	ProjectSection(ProjectDependencies) = postProject
 		{82E4E0F0-2328-418F-90F3-C4FA054AE54E} = {82E4E0F0-2328-418F-90F3-C4FA054AE54E}
 		{9F863D81-CEB4-4F9F-AB8B-460FB03F664C} = {9F863D81-CEB4-4F9F-AB8B-460FB03F664C}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMathTest", "BasicMathTest\BasicMathTest.csproj", "{ADB5233B-D88E-4056-92CC-F0366761CE10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{BEE3EAF5-9C75-45AD-B2CF-8B142270A396}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE3EAF5-9C75-45AD-B2CF-8B142270A396}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEE3EAF5-9C75-45AD-B2CF-8B142270A396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
