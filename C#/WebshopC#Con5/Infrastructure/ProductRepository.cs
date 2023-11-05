@@ -159,6 +159,25 @@ namespace Infrastructure
                 },
 
 
+
+                new ProductDTO()
+                {
+                    Name = "Schilderij Klooster van Sveti Naum",
+                    Description = "Er zijn in Noord-Macedonië heel wat kloosters te vinden, maar het klooster van Sveti Naum is toch wel een van de mooiste",
+                    Price = 359.75,
+                    Category = Shared.ProductCategory.Clothing,
+
+                    Reviews = new List<ReviewDTO>()
+                    {
+                        new ReviewDTO() { Comment = "Comfortable jacket", Rating = 5 },
+                        new ReviewDTO() { Comment = "Mooie klooster historie", Rating = 5 },
+                        new ReviewDTO() { Comment = "Nice place to see", Rating = 5 }
+
+                    }
+
+                },
+
+
                 new ProductDTO()
                 {
                     Name = "Puma jacket10",

@@ -142,8 +142,9 @@ namespace Domain
             }
 
 
-            // Product not found in the warehouse 
-            return 10;
+            // Product not found in the warehouse. default value return -1. 
+           
+            return -1;
 
 
 

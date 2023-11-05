@@ -11,7 +11,7 @@ namespace Domain
     {
         private Warehouse warehouse;
         private List<Entry> cartEntries;
-        private PaymentService paymentService; 
+        private PaymentService paymentService;
 
 
 
@@ -32,7 +32,7 @@ namespace Domain
         {
 
             // check if the product is already in shoppingcart. 
-            Entry foundEntry = null;
+            Entry? foundEntry = null;
 
 
             foreach (Entry entry in cartEntries)
@@ -84,36 +84,37 @@ namespace Domain
             }
 
 
-            Entry entryToRemove = null; 
-            foreach(Entry entry in cartEntries)
+            Entry entryToRemove = null;
+            foreach (Entry entry in cartEntries)
             {
 
-                if(entry.Product == productToRemove)
+                if (entry.Product == productToRemove)
                 {
                     entryToRemove = entry;
-                    break; 
+                    break;
                 }
 
             }
 
 
-            if(entryToRemove != null)
+            if (entryToRemove != null)
             {
 
-                entryToRemove.DeleteAmount(amount); 
-                if(entryToRemove.Amount <= 0)
+                entryToRemove.DeleteAmount(amount);
+                if (entryToRemove.Amount <= 0)
                 {
-                    cartEntries.Remove(entryToRemove); 
+                    cartEntries.Remove(entryToRemove);
                 }
 
-            } else
+            }
+            else
             {
                 throw new InvalidOperationException("Product not found in shopping cart. ");
             }
 
 
         }
-       
+
 
 
 
@@ -135,14 +136,14 @@ namespace Domain
 
                 double productPrice = warehouse.GetProductPrice(entry.Product);
                 totalPrice += entry.Amount * productPrice;
-                
+
             }
 
             return totalPrice;
 
         }
 
-        
+
         public void EmptyShoppingcart()
         {
 

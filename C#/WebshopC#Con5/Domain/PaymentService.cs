@@ -11,8 +11,8 @@ namespace Domain
     public class PaymentService
     {
 
-        public List<Product> Products { get; set; }
-        public Shoppingcart shoppingcart { get; set; }
+        public List<Product> Products { get; private set; }
+        public Shoppingcart shoppingcart { get; private set; }
 
         public PaymentService(Shoppingcart shoppingcart)
         {

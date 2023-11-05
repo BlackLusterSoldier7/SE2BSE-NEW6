@@ -45,26 +45,41 @@ namespace Domain
 
 
 
-        public void AddAmount(int stock)
+        public bool AddAmount(int stock)
         {
 
             if (stock < 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(stock), "Stock cannot be negative.");
+                Console.WriteLine("Stock can not be negative.");
+                return false; 
 
             }
             amount += stock;
+            return true; 
 
         }
 
 
-        public void DeleteAmount(int stock)
+        public bool DeleteAmount(int stock)
         {
 
+            if(stock < 0)
+            {
+                Console.WriteLine("Stock can not be negative.");
+                return false;
+            }
 
-            if (stock < 0) throw new ArgumentOutOfRangeException(nameof(stock), "Stock cannot be negative.");
-            if (stock > amount) throw new InvalidOperationException("Not enough to delete");
+
+            if(stock > amount)
+            {
+                Console.WriteLine("Not enough stock to delete.");
+                return false; 
+            }
+
             amount -= stock;
+            return true; 
+
+
         }
     }
 }

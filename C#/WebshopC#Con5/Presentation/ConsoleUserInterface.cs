@@ -3,9 +3,11 @@ using Infrastructure;
 using Infrastructure.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +21,10 @@ namespace Presentation
         private User currentUser;
         private ProductRepository productRepository;
         private UserRepository userRepository;
+
+        private ProductService productService;
+        private UserService userService;
+
 
 
 
@@ -39,7 +45,13 @@ namespace Presentation
         {
             productRepository = new ProductRepository();
             userRepository = new UserRepository();
+
+
+            this.productService = new ProductService(productRepository);
+            this.userService = new UserService();
+
             warehouse = new Warehouse();
+
 
         }
 
@@ -78,7 +90,26 @@ namespace Presentation
                     case 7:
                         HandlePayment();
                         break;
+
                     case 8:
+                        SortProductsByPriceLowToHighAscending();
+                        break;
+
+
+                    case 9:
+                        SortedProductsByPriceDescendingOrderFromHighToLow();
+                        break;
+
+                    case 10:
+                        DisplaySearchHistoryRecommendations();
+                        break;
+
+
+                    case 11:
+                        SearchForProducts();
+                        break; 
+
+                    case 12:
                         return;
                     default:
                         Console.WriteLine("Invalid choice.");
@@ -101,7 +132,12 @@ namespace Presentation
             Console.WriteLine("5. View Reviews for a Product");
             Console.WriteLine("6. Login/Register");
             Console.WriteLine("7. Make a Payment");
-            Console.WriteLine("8. Exit");
+            Console.WriteLine("8. BubbleSort Low To High Prices Ascending");
+            Console.WriteLine("9. BubbleSort Product Prices Descending Order From High To Low");
+            Console.WriteLine("10. View Search History Recommendations");
+            Console.WriteLine("11. Search For Products");
+
+            Console.WriteLine("12. Exit");
             Console.WriteLine("Enter your choice: ");
 
 
@@ -120,7 +156,7 @@ namespace Presentation
             if (!isValidNumber)
             {
                 Console.WriteLine("Please enter a valid number. ");
-           
+
             }
             return choice;
 
@@ -139,7 +175,12 @@ namespace Presentation
             // iterator onderzoeken voor GetAllProducts. Miljoenen database products 
             // iterator is complex niet maken alleen onderzoek doen. Alleen als je tijd hebt 
 
-            List<ProductDTO> products = productRepository.GetAllProducts();
+            // List<ProductDTO> products = productRepository.GetAllProducts(); dit mag dus niet naar infrastructure layer reference
+
+            List<ProductDTO> products = productService.GetAllProducts();
+
+
+
             for (int i = 0; i < products.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
@@ -150,6 +191,145 @@ namespace Presentation
         }
 
 
+
+
+        private void SortProductsByPriceLowToHighAscending()
+        {
+
+            Console.WriteLine("Sorting products by price");
+
+            // Get the list of products from productService 
+            List<ProductDTO> products = productService.GetAllProducts();
+
+            // Create a Category object 
+            Category category = new Category("Electronics", "All availe electronic products");
+
+            // Call the BubbleSort method to sort the products 
+            category.BubbleSortLowToHighPricesAscending(products);
+
+            // Display the sorted products 
+            DisplaySortedProductsLowToHighAscending(products);
+
+        }
+
+
+
+
+        private void DisplaySortedProductsLowToHighAscending(List<ProductDTO> products)
+        {
+
+            Console.WriteLine("Sorted Products by Price: ");
+
+            for (int i = 0; i < products.Count; i++)
+            {
+
+                Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
+
+
+
+            }
+        }
+
+
+
+
+
+        private void SortedProductsByPriceDescendingOrderFromHighToLow()
+        {
+
+
+            Console.WriteLine("Sorting products by price");
+
+
+            // Get the list of products from productService 
+            List<ProductDTO> products = productService.GetAllProducts();
+
+            // Create a Category object 
+            Category category = new Category("Electronics", "All availble electronics");
+
+            // Call the BubbleSort method to sort the products 
+            category.BubbleSortProductPricesDescendingOrderFromHighToLow(products);
+
+
+            // Display the sorted products 
+            DisplaySortedProductsDescendingOrderFromHighToLow(products); 
+
+        }
+
+
+
+
+        private void DisplaySortedProductsDescendingOrderFromHighToLow(List<ProductDTO> products)
+        {
+
+            Console.WriteLine("Sorted Products by Price: ");
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
+
+
+            }
+        }
+
+
+
+
+        private void SearchForProducts()
+        {
+
+            Console.Write("Enter your search query please: ");
+            string searchQuery = Console.ReadLine().ToLower(); 
+
+            
+
+            // Capture the search query in the user's search history 
+            currentUser.SearchHistory.Add(searchQuery);
+
+
+        }
+
+
+        // product lijst doorlopen uitprinten if contains. 
+        // to do 
+        // naam naar lowercase omzetten voordat je verlijkt. 
+
+
+
+
+
+
+
+
+        private void DisplaySearchHistoryRecommendations()
+        {
+
+            if (currentUser == null)
+            {
+                Console.WriteLine("Please login or register first.");
+                return;
+            }
+
+            List<ProductDTO> recommendations = productService.GetSearchHistoryRecommendations(currentUser);
+
+            if (recommendations.Count == 0)
+            {
+                Console.WriteLine("No search history recommendations available. ");
+                return;
+            }
+
+            Console.WriteLine("Search History Recommendations:");
+
+            for (int i = 0; i < recommendations.Count; i++)
+            {
+                Console.WriteLine($"{i + 1}. {recommendations[i].Name} - ${recommendations[i].Price}");
+
+
+
+            }
+        }
+
+
         private void AddProductToCart()
         {
             Console.Write("Enter product number to add to cart: ");
@@ -157,7 +337,10 @@ namespace Presentation
             Console.Write("Enter amount: ");
             int amount = int.Parse(Console.ReadLine());
 
-            List<ProductDTO> products = productRepository.GetAllProducts();
+            // List<ProductDTO> products = productRepository.GetAllProducts(); dit mag niet 
+
+            List<ProductDTO> products = productService.GetAllProducts();
+
 
             if (productNumber <= 0 || productNumber > products.Count)
             {
@@ -165,10 +348,10 @@ namespace Presentation
                 return;
             }
 
-            if(amount <= 0)
+            if (amount <= 0)
             {
                 Console.WriteLine("Amount must be greater or equal to 1 ");
-                return; 
+                return;
             }
 
 
@@ -233,7 +416,13 @@ namespace Presentation
             int rating = int.Parse(Console.ReadLine());
 
 
-            List<ProductDTO> products = productRepository.GetAllProducts();
+            // List<ProductDTO> products = productRepository.GetAllProducts();
+
+            List<ProductDTO> products = productService.GetAllProducts();
+
+
+
+
             if (productNumber <= 0 || productNumber > products.Count)
             {
                 Console.WriteLine("Invalid product number.");
@@ -253,7 +442,7 @@ namespace Presentation
             };
 
             selectedProductDTO.Reviews.Add(newReview);
-            
+
 
 
 
@@ -274,7 +463,12 @@ namespace Presentation
             Console.WriteLine("Enter product number to view reviews: ");
             int productNumber = int.Parse(Console.ReadLine());
 
-            List<ProductDTO> products = productRepository.GetAllProducts();
+            // List<ProductDTO> products = productRepository.GetAllProducts();
+
+
+            List<ProductDTO> products = productService.GetAllProducts();
+
+
 
             if (productNumber <= 0 || productNumber > products.Count)
             {
@@ -322,7 +516,11 @@ namespace Presentation
                 string username = Console.ReadLine();
 
 
-                List<UserDTO> users = userRepository.GetAllUsers();
+                //List<UserDTO> users = userRepository.GetAllUsers();
+
+                List<UserDTO> users = userService.GetAllUsers();
+
+
                 UserDTO userDTO = null;
 
                 foreach (UserDTO u in users)
@@ -379,7 +577,13 @@ namespace Presentation
                 return;
             }
 
-            Order order = new Order();
+
+
+            DateOnly d = DateOnly.FromDateTime(DateTime.Now); // Create a DateOnly value 
+
+
+
+            Order order = new Order(null, d, null, null);
             PaymentService paymentService = new PaymentService(currentUser.shoppingCart);
             PaymentResultDTO paymentResult = paymentService.DoPayment(order);
 

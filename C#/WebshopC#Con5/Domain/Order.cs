@@ -26,16 +26,9 @@ namespace Domain
         public OrderStatus Status { get; private set; }
 
 
-        public Order()
-        {
 
-        }
-
-
-
-
-        public Order(string paymentMethod, DateOnly paymentsDate,
-            string ibanAccountOf, string ibanAccountTo)
+        public Order(string? paymentMethod, DateOnly paymentsDate,
+            string? ibanAccountOf, string? ibanAccountTo)
         {
 
             this.paymentMethod = paymentMethod;
@@ -54,21 +47,6 @@ namespace Domain
         }
 
 
-        public double CalculateTotal()
-        {
-            double totalCost = 0;
-
-            foreach (Entry item in Items)
-            {
-                Product product = item.Product;
-                if (product != null)
-                {
-                    double itemCost = product.Price * item.Amount;
-                    totalCost += itemCost;
-                }
-            }
-            this.totalCost = totalCost;
-            return totalCost;
-        }
+  
     }
 }
