@@ -136,17 +136,21 @@ namespace Domain
             foreach (Entry entry in cartEntries)
             {
 
+                double pricePerProduct = entry.Product.Price;
+
 
                 if (entry.Product.Discount != null &&
                     entry.Product.Discount.DiscountCondition(entry.Product.Name, this))
                 {
-                    total += entry.Product.Discount.ApplyDiscount(entry.Product.Price);
-                }
-                else
-                {
-                    total += entry.Product.Price;
+                    //total += entry.Product.Discount.ApplyDiscount(entry.Product.Price);
+                    pricePerProduct = entry.Product.Discount.ApplyDiscount(pricePerProduct);
 
                 }
+                
+                    // total += entry.Product.Price;
+                    total += pricePerProduct * entry.Amount;
+
+                
 
 
             }

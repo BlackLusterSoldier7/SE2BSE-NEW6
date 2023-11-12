@@ -32,7 +32,7 @@ namespace Domain
 
         public double ApplyDiscount(double price)
         {
-            return price - (price * (Amount / 100)); 
+            return price - (price * (Amount / 100.0)); 
 
 
 
