@@ -38,7 +38,11 @@ namespace Domain
 
 
 
-
+        public Entry(Product product, int amount)
+        {
+            this.product = product;
+            this.amount = amount; 
+        }
 
 
 

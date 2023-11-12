@@ -20,6 +20,11 @@ namespace Domain
         public ProductCategory Category { get; }
 
 
+        public Discount Discount { get; private set; }
+
+
+
+
         // Properties 
 
         public string Name
@@ -44,7 +49,17 @@ namespace Domain
 
 
 
-        
+        public Product(string name, string description, double price, Discount discount)
+        {
+
+            this.name = name;
+            this.description = description;
+            this.price = price;
+            this.reviews = new List<Review>(); // Initialize the reviews list 
+            // this.Category = category;
+            Discount = discount; 
+
+        }
 
 
 

@@ -1,6 +1,7 @@
 ﻿using Domain;
 using Infrastructure;
 using Infrastructure.DTO;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,18 @@ namespace Presentation
         public static void Main(string[] args)
         {
 
+
+         
+            
+
+
+
+
+
+
+
+
+
             ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface();
 
             consoleUserInterface.RunShop();
@@ -51,6 +64,36 @@ namespace Presentation
             this.userService = new UserService();
 
             warehouse = new Warehouse();
+
+
+
+
+
+            var shoppingCart = new Shoppingcart(warehouse);
+           
+
+
+            // Products with discounts 
+       
+
+            var product1 = new Product("Macbook Pro i9 15 inch", "i9 16th generation. 256 GB Graphic Card NVIDIA ", 10000 ,new MoreThan2Discount(10));
+            var product2 = new Product("HP-laptop", "i9 15th generation. 64 GB Graphic Card ", 3000, new UniqueDiscount(5));
+
+
+            // Adding products to shopping cart 
+            shoppingCart.cartEntries.Add(new Entry(product1, 4)); // 3 laptops 
+            shoppingCart.cartEntries.Add(new Entry(product2, 1)); // 1 laptop 
+
+            // Calculating total payment 
+            var totalPayment = shoppingCart.CalculateTotalPrice();
+            Console.WriteLine($"Total payment: {totalPayment:C}"); 
+
+
+
+
+
+
+
 
 
         }

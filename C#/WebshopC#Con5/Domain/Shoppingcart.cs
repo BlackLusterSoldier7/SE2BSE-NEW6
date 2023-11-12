@@ -10,8 +10,15 @@ namespace Domain
     public class Shoppingcart
     {
         private Warehouse warehouse;
-        private List<Entry> cartEntries;
+        // private List<Entry> cartEntries;
         private PaymentService paymentService;
+
+
+
+        public List<Entry> cartEntries { get; private set; }
+
+
+
 
 
 
@@ -119,10 +126,44 @@ namespace Domain
 
 
 
+        public double CalculateTotalPrice()
+        {
+
+
+
+            double total = 0;
+
+            foreach (Entry entry in cartEntries)
+            {
+
+
+                if (entry.Product.Discount != null &&
+                    entry.Product.Discount.DiscountCondition(entry.Product.Name, this))
+                {
+                    total += entry.Product.Discount.ApplyDiscount(entry.Product.Price);
+                }
+                else
+                {
+                    total += entry.Product.Price;
+
+                }
+
+
+            }
+
+            return total;
+
+
+        }
 
 
 
 
+    
+
+
+
+        /*
 
         public double CalculateTotalPrice()
         {
@@ -141,7 +182,7 @@ namespace Domain
 
             return totalPrice;
 
-        }
+        } */
 
 
         public void EmptyShoppingcart()
