@@ -23,7 +23,7 @@ namespace Domain
         public List<string> SearchHistory { get; private set; }
 
 
-
+        public bool IsNewUser { get; private set; }
 
 
 
@@ -34,6 +34,17 @@ namespace Domain
             shoppingCart = new Shoppingcart(warehouse);
             SearchHistory = new List<string>();
         }
+
+
+
+        public User(string username, Warehouse warehouse, bool isNewUser = true)
+        {
+            Username = username;
+            shoppingCart = new Shoppingcart(warehouse);
+            SearchHistory = new List<string>();
+            IsNewUser = isNewUser;
+        }
+
 
         public bool AddReview(Product product, int score, string comment)
         {

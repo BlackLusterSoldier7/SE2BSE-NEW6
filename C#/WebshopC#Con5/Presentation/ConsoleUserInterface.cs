@@ -36,8 +36,8 @@ namespace Presentation
         {
 
 
-         
-            
+
+
 
 
 
@@ -69,6 +69,34 @@ namespace Presentation
 
 
 
+
+            var shoppingCart = new Shoppingcart(warehouse);
+            shoppingCart.CouponCode = "#50%DMarco";
+            var product1 = new Product("Product 1", "Description", 100, null);
+            var product2 = new Product("Product 2", "Description", 200, null);
+            shoppingCart.AddProductToShoppingcart(product1, 2); // 2 units of product 1
+            shoppingCart.AddProductToShoppingcart(product2, 3); // 3 units of product 2
+
+
+            var discounts = new List<IDiscount>
+            {
+                new QuantityDiscount(4, 5), // Quantity discount
+                new ChristmasDiscount(3)    // Christmas discount
+            };
+
+            var kassa = new Kassa();
+            Bill bill = kassa.CheckOut(shoppingCart, discounts);
+
+
+            Console.WriteLine($"Total before discount: {bill.Total:C}");
+            Console.WriteLine($"Total discount: {bill.Discount:C}");
+            Console.WriteLine($"Total after discount: {bill.Total - bill.Discount:C}");
+
+
+
+
+            /*
+
             var shoppingCart = new Shoppingcart(warehouse);
            
 
@@ -87,7 +115,7 @@ namespace Presentation
             // Calculating total payment 
             var totalPayment = shoppingCart.CalculateTotalPrice();
             Console.WriteLine($"Total payment: {totalPayment:C}"); 
-
+            */
 
 
 
@@ -150,7 +178,7 @@ namespace Presentation
 
                     case 11:
                         SearchForProducts();
-                        break; 
+                        break;
 
                     case 12:
                         return;
@@ -295,7 +323,7 @@ namespace Presentation
 
 
             // Display the sorted products 
-            DisplaySortedProductsDescendingOrderFromHighToLow(products); 
+            DisplaySortedProductsDescendingOrderFromHighToLow(products);
 
         }
 
@@ -322,9 +350,9 @@ namespace Presentation
         {
 
             Console.Write("Enter your search query please: ");
-            string searchQuery = Console.ReadLine().ToLower(); 
+            string searchQuery = Console.ReadLine().ToLower();
 
-            
+
 
             // Capture the search query in the user's search history 
             currentUser.SearchHistory.Add(searchQuery);

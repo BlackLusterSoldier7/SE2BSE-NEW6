@@ -14,6 +14,8 @@ namespace Domain
         private PaymentService paymentService;
 
 
+        public string CouponCode { get; set; }
+
 
         public List<Entry> cartEntries { get; private set; }
 
@@ -146,11 +148,11 @@ namespace Domain
                     pricePerProduct = entry.Product.Discount.ApplyDiscount(pricePerProduct);
 
                 }
-                
-                    // total += entry.Product.Price;
-                    total += pricePerProduct * entry.Amount;
 
-                
+                // total += entry.Product.Price;
+                total += pricePerProduct * entry.Amount;
+
+
 
 
             }
@@ -163,7 +165,7 @@ namespace Domain
 
 
 
-    
+
 
 
 
