@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography;
 using System.Security.Principal;
@@ -25,6 +26,13 @@ namespace Presentation
 
         private ProductService productService;
         private UserService userService;
+
+
+        private List<IDiscount> availableDiscounts;
+
+        private List<IDiscount> selectedDiscounts;
+
+
 
 
 
@@ -71,9 +79,38 @@ namespace Presentation
 
 
             var shoppingCart = new Shoppingcart(warehouse);
+
+
+
+
+            availableDiscounts = new List<IDiscount>
+            {
+
+                new QuantityDiscount(4,5),
+                new ChristmasDiscount(3),
+                new BlackFridayDiscount(4),
+
+
+
+
+            };
+            selectedDiscounts = new List<IDiscount>();
+
+
+
+
+
+
+
+
+
+            /*
+
             shoppingCart.CouponCode = "#50%DMarco";
+
             var product1 = new Product("Product 1", "Description", 100, null);
             var product2 = new Product("Product 2", "Description", 200, null);
+
             shoppingCart.AddProductToShoppingcart(product1, 2); // 2 units of product 1
             shoppingCart.AddProductToShoppingcart(product2, 3); // 3 units of product 2
 
@@ -81,7 +118,9 @@ namespace Presentation
             var discounts = new List<IDiscount>
             {
                 new QuantityDiscount(4, 5), // Quantity discount
-                new ChristmasDiscount(3)    // Christmas discount
+                new ChristmasDiscount(3), // Christmas discount
+                new BlackFridayDiscount(3)
+
             };
 
             var kassa = new Kassa();
@@ -92,6 +131,8 @@ namespace Presentation
             Console.WriteLine($"Total discount: {bill.Discount:C}");
             Console.WriteLine($"Total after discount: {bill.Total - bill.Discount:C}");
 
+
+            */
 
 
 
@@ -180,7 +221,13 @@ namespace Presentation
                         SearchForProducts();
                         break;
 
+
                     case 12:
+                        ChooseDiscounts();
+                        break;
+
+
+                    case 13:
                         return;
                     default:
                         Console.WriteLine("Invalid choice.");
@@ -208,7 +255,9 @@ namespace Presentation
             Console.WriteLine("10. View Search History Recommendations");
             Console.WriteLine("11. Search For Products");
 
-            Console.WriteLine("12. Exit");
+            Console.WriteLine("12. ChooseDiscounts");
+
+            Console.WriteLine("13. Exit");
             Console.WriteLine("Enter your choice: ");
 
 
@@ -640,34 +689,33 @@ namespace Presentation
 
 
 
+
+
+
+
+
+
+
         private void HandlePayment()
         {
+
             if (currentUser == null)
             {
+
                 Console.WriteLine("Please login or register before making a payment.");
                 return;
             }
 
 
+            var kassa = new Kassa();
 
-            DateOnly d = DateOnly.FromDateTime(DateTime.Now); // Create a DateOnly value 
+            Bill bill = kassa.CheckOut(currentUser.shoppingCart, selectedDiscounts);
 
+            Console.WriteLine($"Total before discount: {bill.Total:C}");
+            Console.WriteLine($"Total discount: {bill.Discount:C}");
+            Console.WriteLine($"Total after discount: {bill.Total - bill.Discount:C}");
 
-
-            Order order = new Order(null, d, null, null);
-            PaymentService paymentService = new PaymentService(currentUser.shoppingCart);
-            PaymentResultDTO paymentResult = paymentService.DoPayment(order);
-
-
-            if (paymentResult.Success)
-            {
-                Console.WriteLine(paymentResult.Message);
-                Console.WriteLine("Total amount paid: eur" + paymentResult.AmountPaid);
-            }
-            else
-            {
-                Console.WriteLine(paymentResult.Message);
-            }
+            selectedDiscounts.Clear();
 
 
 
@@ -676,6 +724,38 @@ namespace Presentation
         }
 
 
+        private void ChooseDiscounts()
+        {
+
+
+            Console.WriteLine("Available Discounts: ");
+
+            for (int i = 0; i < availableDiscounts.Count; i++)
+            {
+
+                Console.WriteLine($"{i + 1}. {availableDiscounts[i].GetType().Name}");
+
+            }
+
+            Console.WriteLine("Select a discount to apply (0 for none): ");
+            int choice = int.Parse(Console.ReadLine());
+
+
+
+            if (choice > 0 && choice <= availableDiscounts.Count)
+            {
+
+                selectedDiscounts.Add(availableDiscounts[choice - 1]);
+                Console.WriteLine("Discount applied. ");
+
+
+            }
+
+
+
+
+
+        }
 
 
     }

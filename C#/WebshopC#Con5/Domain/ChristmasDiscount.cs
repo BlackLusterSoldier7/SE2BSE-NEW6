@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,27 @@ namespace Domain
         {
 
 
-            DateTime today = DateTime.Today;
+            //DateTime today = DateTime.Today;
+
+
+
+            int year = 2023;
+            int month = 12;
+            int day = 20;
+            int hour = 12;
+            int minute = 15;
+            int second = 00;
+
+
+            DateTime today = new DateTime(year, month, day, hour, minute, second); 
+
+
+
+
+
+
+
+
 
             if (today.Month == 12)
             {
