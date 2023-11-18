@@ -22,7 +22,7 @@ namespace Domain
 
         public Discount Discount { get; private set; }
 
-
+        private List<string> KeyWords { get; set; }
 
 
         // Properties 
@@ -57,9 +57,14 @@ namespace Domain
             this.price = price;
             this.reviews = new List<Review>(); // Initialize the reviews list 
             // this.Category = category;
-            Discount = discount; 
+            Discount = discount;
 
         }
+
+
+
+
+
 
 
 
@@ -72,15 +77,62 @@ namespace Domain
             this.price = price;
             this.reviews = new List<Review>(); // Initialize the reviews list 
             this.Category = category;
-
+            KeyWords = new List<string>(); // Initialize KeyWords
 
         }
 
 
 
+        public int QueryHits(string query)
+        {
+            // woorden opdelen uit query
+            List<string> queryWords = SplitWords(query);
 
+            // zoek in keywords voor de woorden uit de query
+            int hits = 0;
+            foreach (string keyWord in KeyWords)
+            {
+                foreach (string queryWord in queryWords)
+                {
+                    if (queryWord == keyWord)
+                    {
+                        hits++;
+                        break;
+                    }
+                }
+            }
 
+            // return aantal hits
+            return hits;
+        }
 
+        private List<string> SplitWords(string sentence)
+        {
+            // laptop ssd 16gb ram
+            string acc = "";
+            List<string> words = new List<string>();
+            foreach (char c in sentence.Trim())
+            {
+                if (c != ' ')
+                {
+                    acc += c;
+                }
+                // check acc for content to not insert empty string on multiple spaces
+                else if (acc != "")
+                {
+                    words.Add(acc);
+                    acc = "";
+                }
+            }
+
+            // put last word in list
+            if (acc == "")
+            {
+                words.Add(acc);
+            }
+
+            return words;
+        }
 
 
         public bool AddReview(Review review)

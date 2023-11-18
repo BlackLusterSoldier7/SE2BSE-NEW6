@@ -226,8 +226,7 @@ namespace Presentation
                         ChooseDiscounts();
                         break;
 
-
-                    case 13:
+                    case 14:
                         return;
                     default:
                         Console.WriteLine("Invalid choice.");
@@ -256,8 +255,9 @@ namespace Presentation
             Console.WriteLine("11. Search For Products");
 
             Console.WriteLine("12. ChooseDiscounts");
+          
 
-            Console.WriteLine("13. Exit");
+            Console.WriteLine("14. Exit");
             Console.WriteLine("Enter your choice: ");
 
 
@@ -782,10 +782,6 @@ namespace Presentation
 
 
 
-
-
-
-
         private void EnterGrouponCode()
         {
             Console.Write("Enter your Groupon code (leave blank if none): ");
@@ -794,7 +790,7 @@ namespace Presentation
             currentUser.shoppingCart.CouponCode = grouponCode;
             GrouponCodeDiscount grouponDiscount = null;
 
-            // Loop through available discounts to find a matching GrouponCodeDiscount
+
             foreach (var discount in availableDiscounts)
             {
                 if (discount is GrouponCodeDiscount grouponDiscountItem)
@@ -817,16 +813,6 @@ namespace Presentation
                 Console.WriteLine("Invalid Groupon code.");
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
 
