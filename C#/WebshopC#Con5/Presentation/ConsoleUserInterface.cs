@@ -88,7 +88,7 @@ namespace Presentation
 
                 new QuantityDiscount(4,5),
                 new ChristmasDiscount(3),
-                new BlackFridayDiscount(4),
+                new GrouponCodeDiscount(2, "GroupC")
 
 
 
@@ -724,6 +724,23 @@ namespace Presentation
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         private void ChooseDiscounts()
         {
 
@@ -753,9 +770,61 @@ namespace Presentation
 
 
 
+            EnterGrouponCode();
+
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+        private void EnterGrouponCode()
+        {
+            Console.Write("Enter your Groupon code (leave blank if none): ");
+            string grouponCode = Console.ReadLine();
+
+            currentUser.shoppingCart.CouponCode = grouponCode;
+            GrouponCodeDiscount grouponDiscount = null;
+
+            // Loop through available discounts to find a matching GrouponCodeDiscount
+            foreach (var discount in availableDiscounts)
+            {
+                if (discount is GrouponCodeDiscount grouponDiscountItem)
+                {
+                    if (grouponDiscountItem.IsValidCode(grouponCode))
+                    {
+                        grouponDiscount = grouponDiscountItem;
+                        break;
+                    }
+                }
+            }
+
+            if (grouponDiscount != null)
+            {
+                selectedDiscounts.Add(grouponDiscount);
+                Console.WriteLine("Groupon code applied successfully.");
+            }
+            else if (!string.IsNullOrWhiteSpace(grouponCode))
+            {
+                Console.WriteLine("Invalid Groupon code.");
+            }
+        }
+
+
+
+
+
+
+
+
 
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class GrouponCodeDiscount
+    public class GrouponCodeDiscount : IDiscount
     {
 
 
@@ -47,7 +47,13 @@ namespace Domain
         }
 
 
+        public bool IsValidCode(string code)
+        {
 
+
+            return code == validCode; 
+
+        }
 
 
 
