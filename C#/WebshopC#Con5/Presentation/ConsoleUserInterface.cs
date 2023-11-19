@@ -255,7 +255,7 @@ namespace Presentation
             Console.WriteLine("11. Search For Products");
 
             Console.WriteLine("12. ChooseDiscounts");
-          
+
 
             Console.WriteLine("14. Exit");
             Console.WriteLine("Enter your choice: ");
@@ -787,16 +787,34 @@ namespace Presentation
             Console.Write("Enter your Groupon code (leave blank if none): ");
             string grouponCode = Console.ReadLine();
 
+
             currentUser.shoppingCart.CouponCode = grouponCode;
             GrouponCodeDiscount grouponDiscount = null;
 
 
             foreach (var discount in availableDiscounts)
             {
+                // Binnen de loop wordt gecontroleerd of de huidige korting van
+                // het type GrouponCodeDiscount is door gebruik te maken van is keyword.
+                // Als dit waar is, wordt de korting naar een GrouponCodeDiscount object 
+                // gecast en wordt deze aan de grouponDiscountItem variabele toegewezen. 
+
                 if (discount is GrouponCodeDiscount grouponDiscountItem)
                 {
+
+
+                    // Vervolgens roept het de methode IsValidCode aan op het 
+                    // grouponDiscountItem object, waarbij de grouponCode als argument 
+                    // wordt doorgegeven. Van deze methode wordt verwacht dat deze valideert
+                    // of de ingevoerde Groupon code geldig is voor de huidige korting. 
+
                     if (grouponDiscountItem.IsValidCode(grouponCode))
                     {
+                        // Als de methode IsValidCode true return, betekent dit dat de 
+                        // ingevoerde Groupon code geldig is voor de huidige korting. In 
+                        // dit geval wijst het de grouponDiscountItem toe aan de grouponDiscount 
+                        // variabele en wordt de loop verlaten. 
+
                         grouponDiscount = grouponDiscountItem;
                         break;
                     }
@@ -813,6 +831,12 @@ namespace Presentation
                 Console.WriteLine("Invalid Groupon code.");
             }
         }
+
+
+
+
+
+
     }
 }
 

@@ -106,18 +106,54 @@ namespace Domain
             return hits;
         }
 
+
+
+
+
+        /*
+
+        De methode SplitWords wordt in de methode QueryHits gebruikt om een zoekopdracht 
+        in losse woorden op te splitsen, zodat deze woorden kunnen worden vergeleken
+        met keywords die gekoppeld zijn aan Producten. 
+        Hierdoor kan de QueryHits methode tellen hoeveel woorden uit de zoekopdracht 
+        overeenkomen met de keywords die aan product zijn gekoppeld en het aantal 
+        hits retourneren. 
+
+
+        */
+
+
+
         private List<string> SplitWords(string sentence)
         {
             // laptop ssd 16gb ram
+
+            // acc variabel wordt gebruikt om characters te verzamelen
+            // om een woord te vormen. 
+
             string acc = "";
             List<string> words = new List<string>();
             foreach (char c in sentence.Trim())
             {
+
+                // Als c geen spatieteken is (dat wil zeggen: het is een deel van een woord), 
+                // wordt het toegevoegd aan de accumulate string. Dit wordt gedaan om karakters
+                // te verzamelen en woorden te bouwen. 
+
                 if (c != ' ')
                 {
                     acc += c;
                 }
-                // check acc for content to not insert empty string on multiple spaces
+
+                // Als c een spatie is, betekent dit dat het huidige woord compleet is.
+                // In mij geval controleert de code of accumulate geen lege string is (
+                // dat wil zeggen dat het tekens bevat). Als acc niet leeg is, beekent dit 
+                // dat er een woord is verzameld in acc, dan wordt het toegevoegd aan de 
+                // woordenlijst en wordt acc reset lege string reset gedaan. 
+                // Vervolgens kan het beginnen met het verzamelen van het volgende woord. 
+
+
+
                 else if (acc != "")
                 {
                     words.Add(acc);
@@ -125,7 +161,8 @@ namespace Domain
                 }
             }
 
-            // put last word in list
+
+
             if (acc == "")
             {
                 words.Add(acc);
@@ -133,6 +170,7 @@ namespace Domain
 
             return words;
         }
+
 
 
         public bool AddReview(Review review)
