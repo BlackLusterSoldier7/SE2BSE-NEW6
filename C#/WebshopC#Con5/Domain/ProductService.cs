@@ -89,7 +89,7 @@ namespace Domain
         }
 
 
-        private bool StringContains(string hayStack, string search)
+        public bool StringContains(string hayStack, string search)
         {
             for(int i = 0; i < hayStack.Length - (search.Length); i++)
             {

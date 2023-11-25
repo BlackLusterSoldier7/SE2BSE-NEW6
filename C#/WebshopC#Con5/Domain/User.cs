@@ -33,6 +33,8 @@ namespace Domain
             this.Username = username;
             shoppingCart = new Shoppingcart(warehouse);
             SearchHistory = new List<string>();
+        
+
         }
 
 

@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMathTest", "BasicMathTest\BasicMathTest.csproj", "{ADB5233B-D88E-4056-92CC-F0366761CE10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADB5233B-D88E-4056-92CC-F0366761CE10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
