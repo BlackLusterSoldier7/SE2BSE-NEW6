@@ -141,15 +141,14 @@ namespace Domain
                 double pricePerProduct = entry.Product.Price;
 
 
-                if (entry.Product.Discount != null  )  //&&
-                   // entry.Product.Discount.DiscountCondition(entry.Product.Name, this))
+                if (entry.Product.Discount != null)
                 {
-                    //total += entry.Product.Discount.ApplyDiscount(entry.Product.Price);
+
                     pricePerProduct = entry.Product.Discount.ApplyDiscount(pricePerProduct);
 
                 }
 
-                // total += entry.Product.Price;
+
                 total += pricePerProduct * entry.Amount;
 
 

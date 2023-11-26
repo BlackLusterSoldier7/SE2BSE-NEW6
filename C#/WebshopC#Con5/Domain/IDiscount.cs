@@ -8,15 +8,6 @@ namespace Domain
 {
     public interface IDiscount
     {
-
-
-
         double ApplyDiscount(Shoppingcart cart);
-
-
-
-
-
-
     }
 }
