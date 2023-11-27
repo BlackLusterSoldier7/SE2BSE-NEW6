@@ -65,5 +65,26 @@ namespace TestProject1
             // Assert 
             Assert.Equal(2, remainingAmount);
         }
+
+        [Fact]
+        public void DeleteProduct_RemovesEntry_WhenAmountBecomesZero()
+        {
+            // Arrange 
+            var warehouse = new Warehouse();
+            var product = new Product("TestProduct27", "TestProduct desc", 999.75, Shared.ProductCategory.Electronics);
+
+            // De AddProduct-methode van warehouse wordt aangeroepen om twee units van het 
+            // product aan warehouse object toe te voegen. 
+            warehouse.AddProduct(product, 2);
+
+            // Act 
+            var remainingAmount = warehouse.DeleteProduct(product, 2);
+
+            // Assert 
+            // Empty checks of de Entries van de warehouse leeg is nadat het product 
+            // is verwijderd. Indien het leeg is is deze test geslaagd. 
+            Assert.Empty(warehouse.Entries);
+            Assert.Equal(0, remainingAmount);
+        }
     }
 }
