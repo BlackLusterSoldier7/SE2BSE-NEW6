@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Domain
 {
     public class QuantityDiscount : IDiscount
+
     {
         private int requiredQuantity;
         private double discountPercentage;
@@ -19,24 +20,19 @@ namespace Domain
 
         public double ApplyDiscount(Shoppingcart cart)
         {
-            int totalQuantity = 0;
+            double discountAmount = 0;
 
             foreach (var entry in cart.cartEntries)
             {
-                totalQuantity += entry.Amount;
-            }
-
-            if (totalQuantity >= requiredQuantity)
-            {
-                double total = 0;
-
-                foreach (var entry in cart.cartEntries)
+                // Controleren of de hoeveelheid van het huidige product voldoet aan de vereiste Quantity 
+                if (entry.Amount >= requiredQuantity)
                 {
-                    total += entry.Product.Price * entry.Amount;
+                    // Alleen de korting toepassen op de prijs van de producten die de requireQuantity bereiken.
+                    double productTotal = entry.Product.Price * entry.Amount;
+                    discountAmount += productTotal * (discountPercentage / 100);
                 }
-                return total * (discountPercentage / 100);
             }
-            return 0;
+            return discountAmount;
         }
     }
 }
