@@ -8,36 +8,24 @@ namespace Domain
 {
     public class Kassa
     {
-
-        public Bill CheckOut(Shoppingcart shoppingCart, List<IDiscount> discounts)
+        public Bill CheckOut(Shoppingcart shoppingcart, List<IDiscount> discounts)
         {
-
-            double total = shoppingCart.CalculateTotalPrice();
+            double total = shoppingcart.CalculateTotalPrice();
             double totalDiscount = 0;
 
-
-
-
-
-            
-
-
-
-            foreach(var discount in discounts)
+            foreach (var discount in discounts)
             {
+                double discountAmount = discount.ApplyDiscount(shoppingcart);
+                totalDiscount += discountAmount;
 
-                totalDiscount += discount.ApplyDiscount(shoppingCart); 
-
+                // De totale korting mag niet meer dan totaalbedrag zijn 
+                if (totalDiscount > total)
+                {
+                    totalDiscount = total;
+                    break;
+                }
             }
-
-
-           
             return new Bill(total, totalDiscount);
-
-
         }
-
-   
-
     }
 }
