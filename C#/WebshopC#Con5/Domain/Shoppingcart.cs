@@ -11,7 +11,9 @@ namespace Domain
     public class Shoppingcart
     {
         private readonly IWarehouse warehouse;
-        private readonly List<Entry> cartEntries;
+        //private readonly List<Entry> cartEntries;
+
+        public List<Entry> cartEntries { get; private set; }
 
         public string CouponCode { get; set; }
 

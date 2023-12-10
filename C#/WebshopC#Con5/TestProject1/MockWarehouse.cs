@@ -11,11 +11,14 @@ namespace TestProject1
     {
         private List<Product> products;
         private List<int> quantities;
+        public List<Entry> Entries { get; private set; }
+
 
         public MockWarehouse()
         {
             products = new List<Product>();
             quantities = new List<int>();
+            Entries = new List<Entry>(); 
         }
 
         public void AddProduct(Product product, int amount)
