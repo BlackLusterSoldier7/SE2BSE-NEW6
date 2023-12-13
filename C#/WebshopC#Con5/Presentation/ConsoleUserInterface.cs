@@ -17,92 +17,44 @@ namespace Presentation
 {
     public class ConsoleUserInterface
     {
+        private readonly IWarehouse warehouse;
+        private readonly IProductRepository productRepository; 
 
-        private Warehouse warehouse;
-
+        //private Warehouse warehouse;
         private User currentUser;
-        private ProductRepository productRepository;
+        //private ProductRepository productRepository;
         private UserRepository userRepository;
-
         private ProductService productService;
         private UserService userService;
 
-
         private List<IDiscount> availableDiscounts;
-
         private List<IDiscount> selectedDiscounts;
-
-
-
-
-
-
-
-
 
         public static void Main(string[] args)
         {
-
-
-
-
-
-
-
-
-
-
-
-
-
             ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface();
-
             consoleUserInterface.RunShop();
-
         }
 
-
-        public ConsoleUserInterface()
+        public ConsoleUserInterface(IWarehouse warehouse, IProductRepository productRepository)
         {
-            productRepository = new ProductRepository();
+            this.productRepository = productRepository; 
             userRepository = new UserRepository();
-
 
             this.productService = new ProductService(productRepository);
             this.userService = new UserService();
-
-            warehouse = new Warehouse();
-
-
-
-
-
+            this.warehouse = warehouse;
 
             var shoppingCart = new Shoppingcart(warehouse);
 
-
-
-
             availableDiscounts = new List<IDiscount>
             {
-
                 new QuantityDiscount(4,5),
                 new ChristmasDiscount(3),
                 new GrouponCodeDiscount(2, "GroupC")
-
-
-
-
             };
+
             selectedDiscounts = new List<IDiscount>();
-
-
-
-
-
-
-
-
 
             /*
 
@@ -136,6 +88,7 @@ namespace Presentation
 
 
 
+
             /*
 
             var shoppingCart = new Shoppingcart(warehouse);
@@ -158,29 +111,18 @@ namespace Presentation
             Console.WriteLine($"Total payment: {totalPayment:C}"); 
             */
 
-
-
-
-
-
-
-
         }
 
         public void RunShop()
         {
-
             while (true)
             {
-
                 ShowMenu();
 
                 int choice = GetChoiceFromUser();
 
-
                 switch (choice)
                 {
-
                     case 1:
                         DisplayProducts();
                         break;
@@ -202,30 +144,21 @@ namespace Presentation
                     case 7:
                         HandlePayment();
                         break;
-
                     case 8:
                         SortProductsByPriceLowToHighAscending();
                         break;
-
-
                     case 9:
                         SortedProductsByPriceDescendingOrderFromHighToLow();
                         break;
-
                     case 10:
                         DisplaySearchHistoryRecommendations();
                         break;
-
-
                     case 11:
                         SearchForProducts();
                         break;
-
-
                     case 12:
                         ChooseDiscounts();
                         break;
-
                     case 14:
                         return;
                     default:
@@ -235,12 +168,8 @@ namespace Presentation
             }
         }
 
-
-
         private void ShowMenu()
         {
-
-
             Console.WriteLine("Welcome to the Webshop Menu: ");
             Console.WriteLine("1. Display products");
             Console.WriteLine("2. Add Product to Shoppingcart");
@@ -253,21 +182,12 @@ namespace Presentation
             Console.WriteLine("9. BubbleSort Product Prices Descending Order From High To Low");
             Console.WriteLine("10. View Search History Recommendations");
             Console.WriteLine("11. Search For Products");
-
             Console.WriteLine("12. ChooseDiscounts");
-
-
             Console.WriteLine("14. Exit");
             Console.WriteLine("Enter your choice: ");
-
-
-
         }
-
-
         private int GetChoiceFromUser()
         {
-
             string userInput = Console.ReadLine();
             int choice;
 
@@ -276,18 +196,12 @@ namespace Presentation
             if (!isValidNumber)
             {
                 Console.WriteLine("Please enter a valid number. ");
-
             }
             return choice;
-
-
-
         }
-
 
         private void DisplayProducts()
         {
-
             Console.WriteLine("Products:");
 
             // for each loop doen 
@@ -299,23 +213,14 @@ namespace Presentation
 
             List<ProductDTO> products = productService.GetAllProducts();
 
-
-
             for (int i = 0; i < products.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
-
             }
-
-
         }
-
-
-
 
         private void SortProductsByPriceLowToHighAscending()
         {
-
             Console.WriteLine("Sorting products by price");
 
             // Get the list of products from productService 
@@ -329,37 +234,21 @@ namespace Presentation
 
             // Display the sorted products 
             DisplaySortedProductsLowToHighAscending(products);
-
         }
-
-
-
 
         private void DisplaySortedProductsLowToHighAscending(List<ProductDTO> products)
         {
-
             Console.WriteLine("Sorted Products by Price: ");
 
             for (int i = 0; i < products.Count; i++)
             {
-
                 Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
-
-
-
             }
         }
 
-
-
-
-
         private void SortedProductsByPriceDescendingOrderFromHighToLow()
         {
-
-
             Console.WriteLine("Sorting products by price");
-
 
             // Get the list of products from productService 
             List<ProductDTO> products = productService.GetAllProducts();
@@ -370,60 +259,35 @@ namespace Presentation
             // Call the BubbleSort method to sort the products 
             category.BubbleSortProductPricesDescendingOrderFromHighToLow(products);
 
-
             // Display the sorted products 
             DisplaySortedProductsDescendingOrderFromHighToLow(products);
-
         }
-
-
-
 
         private void DisplaySortedProductsDescendingOrderFromHighToLow(List<ProductDTO> products)
         {
-
             Console.WriteLine("Sorted Products by Price: ");
 
             for (int i = 0; i < products.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {products[i].Name} - ${products[i].Price}");
-
-
             }
         }
 
-
-
-
         private void SearchForProducts()
         {
-
             Console.Write("Enter your search query please: ");
             string searchQuery = Console.ReadLine().ToLower();
 
-
-
             // Capture the search query in the user's search history 
             currentUser.SearchHistory.Add(searchQuery);
-
-
         }
-
 
         // product lijst doorlopen uitprinten if contains. 
         // to do 
         // naam naar lowercase omzetten voordat je verlijkt. 
 
-
-
-
-
-
-
-
         private void DisplaySearchHistoryRecommendations()
         {
-
             if (currentUser == null)
             {
                 Console.WriteLine("Please login or register first.");
@@ -443,12 +307,8 @@ namespace Presentation
             for (int i = 0; i < recommendations.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {recommendations[i].Name} - ${recommendations[i].Price}");
-
-
-
             }
         }
-
 
         private void AddProductToCart()
         {
@@ -460,7 +320,6 @@ namespace Presentation
             // List<ProductDTO> products = productRepository.GetAllProducts(); dit mag niet 
 
             List<ProductDTO> products = productService.GetAllProducts();
-
 
             if (productNumber <= 0 || productNumber > products.Count)
             {
@@ -474,12 +333,9 @@ namespace Presentation
                 return;
             }
 
-
-
             ProductDTO selectedProductDTO = products[productNumber - 1];
             Product selectedProduct = new Product(selectedProductDTO.Name, selectedProductDTO.Description,
                 selectedProductDTO.Price, selectedProductDTO.Category);
-
 
             currentUser.shoppingCart.AddProductToShoppingcart(selectedProduct, amount);
 
@@ -487,43 +343,25 @@ namespace Presentation
 
         }
 
-
-
-
         private void ViewCart()
         {
-
             Console.WriteLine("Your Shoppingcart:");
 
             var cartItems = currentUser.shoppingCart.ViewProducts();
 
             foreach (var item in cartItems)
-
             {
                 Console.WriteLine($"{item.Product.Name} - ${item.Product.Price} x {item.Amount} = ${item.Product.Price * item.Amount} ");
-
-
             }
-
-
-
-
         }
-
-
-
-
-
 
         private void WriteReview()
         {
-
             if (currentUser == null)
             {
                 Console.WriteLine("Please login or register first.");
                 return;
             }
-
 
             DisplayProducts();
             Console.Write("Enter product number to review: ");
@@ -535,13 +373,9 @@ namespace Presentation
             Console.Write("Enter your rating (1-5): ");
             int rating = int.Parse(Console.ReadLine());
 
-
             // List<ProductDTO> products = productRepository.GetAllProducts();
 
             List<ProductDTO> products = productService.GetAllProducts();
-
-
-
 
             if (productNumber <= 0 || productNumber > products.Count)
             {
@@ -555,46 +389,27 @@ namespace Presentation
 
             ReviewDTO newReview = new ReviewDTO
             {
-
                 Comment = reviewText,
                 Rating = rating
-
             };
 
             selectedProductDTO.Reviews.Add(newReview);
 
-
-
-
             Console.WriteLine("Review added successfully!");
-
-
         }
-
-
-
-
-
 
         private void ViewReviews()
         {
-
-
             Console.WriteLine("Enter product number to view reviews: ");
             int productNumber = int.Parse(Console.ReadLine());
 
             // List<ProductDTO> products = productRepository.GetAllProducts();
-
-
             List<ProductDTO> products = productService.GetAllProducts();
-
-
 
             if (productNumber <= 0 || productNumber > products.Count)
             {
                 Console.WriteLine("Invalid product number.");
                 return;
-
             }
 
             ProductDTO selectedProductDTO = products[productNumber - 1];
@@ -602,28 +417,18 @@ namespace Presentation
 
             if (selectedProductDTO.Reviews.Count == 0)
             {
-
                 Console.WriteLine("No reviews available for this product.");
                 return;
-
             }
 
             foreach (ReviewDTO review in selectedProductDTO.Reviews)
             {
                 Console.WriteLine($"{review.Comment} - {review.Rating}/5");
             }
-
-
-
-
-
         }
-
-
 
         private void LoginOrRegister()
         {
-
             Console.WriteLine("1. Login");
             Console.WriteLine("2. Register");
             Console.Write("Choose option: ");
@@ -631,15 +436,12 @@ namespace Presentation
 
             if (option == 1)
             {
-
                 Console.Write("Enter username: ");
                 string username = Console.ReadLine();
-
 
                 //List<UserDTO> users = userRepository.GetAllUsers();
 
                 List<UserDTO> users = userService.GetAllUsers();
-
 
                 UserDTO userDTO = null;
 
@@ -661,8 +463,6 @@ namespace Presentation
                 {
                     Console.WriteLine("User not found.");
                 }
-
-
             }
             else if (option == 2)
             {
@@ -671,41 +471,20 @@ namespace Presentation
 
                 currentUser = new User(newUsername, warehouse);
                 Console.WriteLine($"Registered and logged in as {newUsername}.");
-
-
             }
             else
             {
                 Console.WriteLine("Invalid option. ");
             }
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
 
         private void HandlePayment()
         {
-
             if (currentUser == null)
             {
-
                 Console.WriteLine("Please login or register before making a payment.");
                 return;
             }
-
 
             var kassa = new Kassa();
 
@@ -716,81 +495,35 @@ namespace Presentation
             Console.WriteLine($"Total after discount: {bill.Total - bill.Discount:C}");
 
             selectedDiscounts.Clear();
-
-
-
-
-
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private void ChooseDiscounts()
         {
-
-
             Console.WriteLine("Available Discounts: ");
 
             for (int i = 0; i < availableDiscounts.Count; i++)
             {
-
                 Console.WriteLine($"{i + 1}. {availableDiscounts[i].GetType().Name}");
-
             }
 
             Console.WriteLine("Select a discount to apply (0 for none): ");
             int choice = int.Parse(Console.ReadLine());
 
-
-
             if (choice > 0 && choice <= availableDiscounts.Count)
             {
-
                 selectedDiscounts.Add(availableDiscounts[choice - 1]);
                 Console.WriteLine("Discount applied. ");
-
-
             }
-
-
-
             EnterGrouponCode();
-
-
-
         }
-
-
-
-
-
-
 
         private void EnterGrouponCode()
         {
             Console.Write("Enter your Groupon code (leave blank if none): ");
             string grouponCode = Console.ReadLine();
 
-
             currentUser.shoppingCart.CouponCode = grouponCode;
             GrouponCodeDiscount grouponDiscount = null;
-
 
             foreach (var discount in availableDiscounts)
             {
@@ -801,8 +534,6 @@ namespace Presentation
 
                 if (discount is GrouponCodeDiscount grouponDiscountItem)
                 {
-
-
                     // Vervolgens roept het de methode IsValidCode aan op het 
                     // grouponDiscountItem object, waarbij de grouponCode als argument 
                     // wordt doorgegeven. Van deze methode wordt verwacht dat deze valideert
@@ -831,12 +562,5 @@ namespace Presentation
                 Console.WriteLine("Invalid Groupon code.");
             }
         }
-
-
-
-
-
-
     }
 }
-

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Warehouse
+    public class Warehouse : IWarehouse
     {
         public List<Entry> Entries { get; private set; }
         private List<Product> products;
