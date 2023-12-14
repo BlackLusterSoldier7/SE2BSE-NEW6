@@ -3,6 +3,7 @@ using NuGet.Frameworks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,49 @@ namespace TestProject1
 {
     public class WarehouseTests
     {
+        // Verwijderen van een groter aantal dan aanwezig
+        [Fact]
+        public void VerwijderenVanEenGroterAantalDanAanwezig()
+        {
+            // Arrange 
+            var mockWarehouse = new MockWarehouse();
+            var product = new Product("Playstation 5", "Disk edition", 775, Shared.ProductCategory.Electronics);
+
+            // Act
+            mockWarehouse.AddProduct(product, 10);
+            var result = mockWarehouse.DeleteProduct(product, 20);
+
+            Assert.Equal(10, result);
+            Assert.Empty(mockWarehouse.Entries);
+        }
+
+        [Fact]
+        public void DeleteProduct_ShouldReturnZero_WhenProductNotInWarehouse()
+        {
+            // Arrange 
+            var mockWarehouse = new MockWarehouse();
+            var product = new Product("Playstation 5", "Disk edition", 775, Shared.ProductCategory.Electronics);
+
+            // Act 
+            var result = mockWarehouse.DeleteProduct(product, 1);
+
+            Assert.Equal(0, result);
+        }
+
+        [Fact]
+        public void AddProduct_ShouldNotAdd_WhenAmountIsNegative()
+        {
+            // Arrange 
+            var mockWarehouse = new MockWarehouse();
+            var product = new Product("Playstation 5", "Disk edition", 775, Shared.ProductCategory.Electronics);
+
+            // Act 
+            mockWarehouse.AddProduct(product, -5);
+
+            // Assert 
+            Assert.Empty(mockWarehouse.Entries);
+        }
+
         [Fact]
         public void AddProduct_AddsNewEntry_WhenProductNotInEntries()
         {
