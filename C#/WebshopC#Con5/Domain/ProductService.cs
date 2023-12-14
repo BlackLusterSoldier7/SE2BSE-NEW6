@@ -14,9 +14,11 @@ namespace Domain
     {
 
 
-        private ProductRepository productRepository;
+        private readonly IProductRepository productRepository; 
 
-        public ProductService(ProductRepository productRepository)
+        // private ProductRepository productRepository;
+
+        public ProductService(IProductRepository productRepository)
         {
 
             this.productRepository = productRepository;

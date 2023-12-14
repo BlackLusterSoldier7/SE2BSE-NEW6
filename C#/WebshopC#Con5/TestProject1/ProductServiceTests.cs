@@ -15,8 +15,8 @@ namespace TestProject1
         public void GetSearchHistoryRecommendations_ReturnsEmptyList_WhenUserHasNoSearchHistory()
         {
             // Arrange 
-            var productRepository = new ProductRepository();
-            var productService = new ProductService(productRepository);
+            var mockProductRepository = new MockProductRepository();
+            var productService = new ProductService(mockProductRepository);
             var user = new User("testUsername", new Warehouse());
 
             // Act
@@ -36,8 +36,8 @@ namespace TestProject1
         public void StringContains_ReturnsExpectedResult(string haystack, string search, bool expectedResult)
         {
             // Arrange 
-            var productRepository = new ProductRepository();
-            var productService = new ProductService(productRepository);
+            var mockProductRepository = new MockProductRepository();
+            var productService = new ProductService(mockProductRepository);
 
             // Act 
             bool result = productService.StringContains(haystack, search);
