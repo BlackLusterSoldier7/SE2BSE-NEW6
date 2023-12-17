@@ -10,30 +10,16 @@ namespace Domain
 {
     public class UserService
     {
-
-        private UserRepository userRepository; 
+        private UserRepository userRepository;
 
         public UserService()
         {
-
             this.userRepository = new UserRepository();
-
-
         }
-
-
 
         public List<UserDTO> GetAllUsers()
         {
             return userRepository.GetAllUsers();
         }
-
-
-
-
-
-
-
-
     }
 }

@@ -10,7 +10,6 @@ namespace Domain
 {
     public class PaymentService
     {
-
         public List<Product> Products { get; private set; }
         public Shoppingcart shoppingcart { get; private set; }
 
@@ -20,16 +19,12 @@ namespace Domain
             this.shoppingcart = shoppingcart;
         }
 
-
         public PaymentResultDTO DoPayment(Order order)
         {
-
             PaymentResultDTO paymentResultDTO = new PaymentResultDTO
             {
-
                 Success = false,
                 Message = "Payment failed: Invalid order or shopping cart is empty. "
-
             };
 
             if (order != null && shoppingcart != null && Products.Count > 0)
@@ -38,14 +33,7 @@ namespace Domain
                 paymentResultDTO.Message = "Payment successful for order " + order.Shippingaddress + " eigenlijk order number of ID. Voor test shippingadres gedaan. ";
                 paymentResultDTO.AmountPaid = shoppingcart.CalculateTotalPrice();
             }
-
             return paymentResultDTO;
-
         }
-
-
-
-
-
     }
 }

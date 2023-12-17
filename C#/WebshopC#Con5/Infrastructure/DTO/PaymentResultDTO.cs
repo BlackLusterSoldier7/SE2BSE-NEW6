@@ -8,16 +8,8 @@ namespace Infrastructure.DTO
 {
     public class PaymentResultDTO
     {
-
         public bool Success { get; set; }
         public string Message { get; set; }
         public double AmountPaid { get; set; }
-
-
-
-
-
-
-
     }
 }

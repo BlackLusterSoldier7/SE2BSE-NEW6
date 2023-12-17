@@ -18,11 +18,9 @@ namespace Presentation
     public class ConsoleUserInterface
     {
         private readonly IWarehouse warehouse;
-        private readonly IProductRepository productRepository; 
-
-        //private Warehouse warehouse;
+        private readonly IProductRepository productRepository;
         private User currentUser;
-        //private ProductRepository productRepository;
+
         private UserRepository userRepository;
         private ProductService productService;
         private UserService userService;
@@ -42,7 +40,7 @@ namespace Presentation
 
         public ConsoleUserInterface(IWarehouse warehouse, IProductRepository productRepository)
         {
-            this.productRepository = productRepository; 
+            this.productRepository = productRepository;
             userRepository = new UserRepository();
 
             this.productService = new ProductService(productRepository);
@@ -59,61 +57,6 @@ namespace Presentation
             };
 
             selectedDiscounts = new List<IDiscount>();
-
-            /*
-
-            shoppingCart.CouponCode = "#50%DMarco";
-
-            var product1 = new Product("Product 1", "Description", 100, null);
-            var product2 = new Product("Product 2", "Description", 200, null);
-
-            shoppingCart.AddProductToShoppingcart(product1, 2); // 2 units of product 1
-            shoppingCart.AddProductToShoppingcart(product2, 3); // 3 units of product 2
-
-
-            var discounts = new List<IDiscount>
-            {
-                new QuantityDiscount(4, 5), // Quantity discount
-                new ChristmasDiscount(3), // Christmas discount
-                new BlackFridayDiscount(3)
-
-            };
-
-            var kassa = new Kassa();
-            Bill bill = kassa.CheckOut(shoppingCart, discounts);
-
-
-            Console.WriteLine($"Total before discount: {bill.Total:C}");
-            Console.WriteLine($"Total discount: {bill.Discount:C}");
-            Console.WriteLine($"Total after discount: {bill.Total - bill.Discount:C}");
-
-
-            */
-
-
-
-
-            /*
-
-            var shoppingCart = new Shoppingcart(warehouse);
-           
-
-
-            // Products with discounts 
-       
-
-            var product1 = new Product("Macbook Pro i9 15 inch", "i9 16th generation. 256 GB Graphic Card NVIDIA ", 10000 ,new MoreThan2Discount(10));
-            var product2 = new Product("HP-laptop", "i9 15th generation. 64 GB Graphic Card ", 3000, new UniqueDiscount(5));
-
-
-            // Adding products to shopping cart 
-            shoppingCart.cartEntries.Add(new Entry(product1, 4)); // 3 laptops 
-            shoppingCart.cartEntries.Add(new Entry(product2, 1)); // 1 laptop 
-
-            // Calculating total payment 
-            var totalPayment = shoppingCart.CalculateTotalPrice();
-            Console.WriteLine($"Total payment: {totalPayment:C}"); 
-            */
 
         }
 

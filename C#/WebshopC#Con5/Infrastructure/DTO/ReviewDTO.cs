@@ -8,14 +8,7 @@ namespace Infrastructure.DTO
 {
     public class ReviewDTO
     {
-
         public string Comment { get; set; }
         public int Rating { get; set; }
-
-
-      
-
-
-
     }
 }

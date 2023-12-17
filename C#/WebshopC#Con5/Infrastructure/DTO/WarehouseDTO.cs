@@ -8,11 +8,6 @@ namespace Infrastructure.DTO
 {
     public class WarehouseDTO
     {
-
-
         public List<ProductDTO> Products { get; set; }
-
-
-
     }
 }

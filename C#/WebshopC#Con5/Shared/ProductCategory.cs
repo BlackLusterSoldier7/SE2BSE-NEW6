@@ -8,14 +8,12 @@ namespace Shared
 {
     public enum ProductCategory
     {
-
-        Electronics, 
-        Clothing, 
-        Toys, 
+        Electronics,
+        Clothing,
+        Toys,
         Books,
-        Cars, 
+        Cars,
         Motorcycles,
         Bicycles
-
     }
 }

@@ -22,38 +22,24 @@ namespace Infrastructure
                     Email = "ema.m@outlook.com",
                     Firstname = "Ema",
                     Lastname = "M"
-
-
                 },
 
                 new UserDTO()
                 {
-
                     Username = "burak_b",
                     Email = "burak.b@outlook.com",
                     Firstname = "Burak",
                     Lastname = "B"
-
                 },
 
                 new UserDTO()
                 {
-
                     Username = "test",
                     Email = "test@outlook.com",
                     Firstname = "test",
                     Lastname = "test"
-
                 }
-
-
-
             };
         }
-
-
-
-
-
     }
 }

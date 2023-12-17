@@ -8,27 +8,16 @@ namespace Domain
 {
     public class Bill
     {
-
-
-        private List<Product> products; 
-
+        private List<Product> products;
 
         public double Discount { get; private set; }
 
         public double Total { get; private set; }
 
-
         public Bill(double total, double discount)
         {
             Total = total;
             Discount = discount;
-           
-
         }
-
-
-
-
-
     }
 }

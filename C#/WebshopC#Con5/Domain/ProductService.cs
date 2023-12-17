@@ -12,36 +12,23 @@ namespace Domain
 
     public class ProductService
     {
-
-
-        private readonly IProductRepository productRepository; 
+        private readonly IProductRepository productRepository;
 
         // private ProductRepository productRepository;
 
         public ProductService(IProductRepository productRepository)
         {
-
             this.productRepository = productRepository;
-
         }
-
-
 
         public List<ProductDTO> GetAllProducts()
         {
             return productRepository.GetAllProducts();
         }
 
-
-
-
-
-
         public List<ProductDTO> GetSearchHistoryRecommendations(User user)
         {
-
             List<string> recentSearches = new List<string>();
-
 
             // Limit the number of recent searches to the first 5 elements. 
             int count = 0;
@@ -51,20 +38,15 @@ namespace Domain
                 {
                     break;
                 }
-
                 recentSearches.Add(searchQuery);
                 count++;
-
             }
-
-
 
             List<ProductDTO> allProducts = productRepository.GetAllProducts();
             List<ProductDTO> recommendations = new List<ProductDTO>();
 
             foreach (string searchQuery in recentSearches)
             {
-
                 foreach (ProductDTO product in allProducts)
                 {
                     if (StringContains(product.Name.ToLower(), searchQuery))
@@ -73,7 +55,6 @@ namespace Domain
                     }
                 }
             }
-
 
             // Remove duplicates 
             List<ProductDTO> distinctRecommendations = new List<ProductDTO>();
@@ -84,18 +65,14 @@ namespace Domain
                     distinctRecommendations.Add(product);
                 }
             }
-
             return distinctRecommendations;
-
-
         }
-
 
         public bool StringContains(string hayStack, string search)
         {
-            for(int i = 0; i < hayStack.Length - (search.Length); i++)
+            for (int i = 0; i < hayStack.Length - (search.Length); i++)
             {
-                for(int j = 0; j < search.Length; j++)
+                for (int j = 0; j < search.Length; j++)
                 {
                     if (hayStack[i + j] == search[j])
                     {
@@ -110,18 +87,7 @@ namespace Domain
                     }
                 }
             }
-
             return false;
-
-
-
         }
-
-
-
-
-
-
-
     }
 }

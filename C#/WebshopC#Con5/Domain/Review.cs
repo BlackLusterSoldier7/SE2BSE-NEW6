@@ -9,7 +9,6 @@ namespace Domain
 {
     public class Review
     {
-
         public User Author { get; }
         public Product ReviewedProduct { get; }
 
@@ -19,7 +18,6 @@ namespace Domain
 
         public DateTime Date { get; }
 
-
         public Review(User author, Product product, string text, int rating)
         {
             Author = author;
@@ -28,10 +26,5 @@ namespace Domain
             Rating = rating;
             Date = DateTime.Now; // Current date 
         }
-
-
-   
-
-
     }
 }
