@@ -6,9 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Infrastructure
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
 
         private List<ProductDTO> products;
@@ -204,23 +206,29 @@ namespace Infrastructure
 
         }
 
+        public void AddProduct(ProductDTO product)
+        {
+            throw new NotImplementedException();
+        }
 
-
-
-
-       
-
-
-
-
-
-
-
-
+        public void DeleteProduct(int id)
+        {
+            throw new NotImplementedException();
+        }
 
         public List<ProductDTO> GetAllProducts()
         {
             return products;
+        }
+
+        public ProductDTO GetProductById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateProduct(ProductDTO product)
+        {
+            throw new NotImplementedException();
         }
 
 

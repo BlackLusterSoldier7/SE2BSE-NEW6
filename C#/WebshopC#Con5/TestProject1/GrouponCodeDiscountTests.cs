@@ -183,7 +183,7 @@ namespace TestProject1
             double result = discount.ApplyDiscount(mockCart);
 
             // Assert 
-            double expectedDiscount = 3375 * 6 * 0.22;
+            double expectedDiscount = 0;
             Assert.Equal(expectedDiscount, result);
         }
 

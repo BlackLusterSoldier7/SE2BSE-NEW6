@@ -49,7 +49,7 @@ namespace Domain
 
 
 
-        public Product(string name, string description, double price, Discount discount)
+        public Product(string name, string description, double price, IDiscount discount)
         {
 
             this.name = name;
@@ -57,7 +57,7 @@ namespace Domain
             this.price = price;
             this.reviews = new List<Review>(); // Initialize the reviews list 
             // this.Category = category;
-            Discount = discount;
+      
 
         }
 

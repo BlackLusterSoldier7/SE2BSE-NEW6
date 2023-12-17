@@ -21,7 +21,7 @@ namespace Domain
 
         public bool IsNewUser { get; private set; }
 
-        public User(string username, Warehouse warehouse)
+        public User(string username, IWarehouse warehouse)
         {
             this.Username = username;
             // shoppingCart = new Shoppingcart(warehouse); origineel oude code 

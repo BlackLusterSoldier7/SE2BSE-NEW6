@@ -32,7 +32,11 @@ namespace Presentation
 
         public static void Main(string[] args)
         {
-            ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface();
+
+            Warehouse warehouse = new Warehouse();
+            ProductRepository productRepository = new ProductRepository();
+
+            ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface(warehouse, productRepository);
             consoleUserInterface.RunShop();
         }
 
