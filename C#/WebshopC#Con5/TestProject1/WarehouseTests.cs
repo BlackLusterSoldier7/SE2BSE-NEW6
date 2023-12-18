@@ -17,10 +17,12 @@ namespace TestProject1
         public void VerwijderenVanEenGroterAantalDanAanwezig()
         {
             // Arrange 
+            // Werk met een simulatie warehouse 
             var mockWarehouse = new MockWarehouse();
             var product = new Product("Playstation 5", "Disk edition", 775, Shared.ProductCategory.Electronics);
 
             // Act
+            // Actual action 
             mockWarehouse.AddProduct(product, 10);
             var result = mockWarehouse.DeleteProduct(product, 20);
 
@@ -67,7 +69,9 @@ namespace TestProject1
 
             // Assert 
             // Verifieert dat er een entry is in de Entries property van de warehouse. 
+            // Verifieert dat er een nieuwe Entry is toegevoegd aan de warehouse.
             Assert.Single(mockWarehouse.Entries);
+
             var entry = mockWarehouse.Entries[0];
             // Controleert of het Product-object dat in Entry is opgeslagen, 
             // overeenkomt met het oorspronkelijke product dat is toegevoegd. 
