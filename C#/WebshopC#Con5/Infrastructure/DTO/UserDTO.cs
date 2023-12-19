@@ -13,6 +13,8 @@ namespace Infrastructure.DTO
         public string Firstname { get; set; }
         public string Lastname { get; set; }
 
+        public int Id { get; set; }
+
         public UserDTO() { }
 
         public UserDTO(string username, string email, string firstname, string lastname)

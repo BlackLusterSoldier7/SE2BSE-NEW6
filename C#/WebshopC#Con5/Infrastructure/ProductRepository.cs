@@ -1,8 +1,10 @@
 ﻿using Infrastructure.DTO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -151,27 +153,81 @@ namespace Infrastructure
 
         public void AddProduct(ProductDTO product)
         {
-            throw new NotImplementedException();
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+
+            int maxId = 0;
+            foreach (var p in products)
+            {
+                if (p.Id > maxId)
+                {
+                    maxId = p.Id;
+                }
+            }
+            product.Id = maxId + 1;
+            products.Add(product);
         }
 
         public void DeleteProduct(int id)
         {
-            throw new NotImplementedException();
+            ProductDTO productToRemove = null;
+            foreach (var p in products)
+            {
+                if (p.Id == id)
+                {
+                    productToRemove = p;
+                    break;
+                }
+            }
+
+            if (productToRemove != null)
+            {
+                products.Remove(productToRemove);
+            }
         }
 
         public List<ProductDTO> GetAllProducts()
         {
-            return products;
+            // Encapsulation     
+            List<ProductDTO> result = new List<ProductDTO>();
+
+            foreach (var product in products)
+            {
+                result.Add(product);
+            }
+            return result;
         }
 
         public ProductDTO GetProductById(int id)
         {
-            throw new NotImplementedException();
+            foreach (var product in products)
+            {
+                if (product.Id == id)
+                {
+                    return product;
+                }
+            }
+            return null; // If Product not found 
         }
 
         public void UpdateProduct(ProductDTO product)
         {
-            throw new NotImplementedException();
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+
+            for (int i = 0; i < products.Count; i++)
+            {
+                if (products[i].Id == product.Id)
+                {
+                    products[i] = product;
+                    return;
+                }
+            }
+            throw new ArgumentException("Product not found", nameof(product));
         }
     }
 }
