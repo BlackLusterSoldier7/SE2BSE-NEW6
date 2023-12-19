@@ -95,6 +95,9 @@ namespace TestProject1
             mockWarehouse.AddProduct(product, 2);
 
             // Assert 
+            // Exact 1 Entry in de Entries property van de mockWarehouse 
+            // Verrifieert dat er 1 Entry in in de warehouse ondanks de tweede
+            // AddProduct methode aanroep. De hoeveelheid wordt dus verhoogt 
             Assert.Single(mockWarehouse.Entries);
             var entry = mockWarehouse.Entries[0];
             Assert.Equal(product, entry.Product);

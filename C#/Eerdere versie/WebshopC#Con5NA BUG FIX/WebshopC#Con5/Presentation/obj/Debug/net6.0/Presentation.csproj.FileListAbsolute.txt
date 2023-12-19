@@ -1,0 +1,62 @@
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.csproj.CopyComplete
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\refint\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.genruntimeconfig.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Presentation\obj\Debug\net6.0\ref\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Presentation.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Domain.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Infrastructure.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\bin\Debug\net6.0\Shared.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.AssemblyInfo.cs
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.csproj.CopyComplete
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\refint\Presentation.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.pdb
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\Presentation.genruntimeconfig.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\Eerdere versie\WebshopC#Con5NA BUG FIX\WebshopC#Con5\Presentation\obj\Debug\net6.0\ref\Presentation.dll

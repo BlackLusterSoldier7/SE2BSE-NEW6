@@ -32,7 +32,9 @@ namespace TestProject1
             Assert.Equal(expectedDiscount, result);
         }
 
+
         // Check wat ApplyDiscount methode doet wanneer de totalebedrag in winkelwagen 0 is 
+        [Fact]
         public void DoNotApplyDiscount_whenShoppingcartTotalIsZero_CheckWhatHappensWithValueZeroInShoppingcart()
         {
             // Arrange 
@@ -55,6 +57,7 @@ namespace TestProject1
         // Testen wanneer er producten in Winkelwagen zijn maar de producten prijs zijn 
         // bijvoorbeeld 0 euro. Ook dan mag je geen korting toepassen. Omdat de klant anders 
         // geld terug krijgt. 
+        [Fact]
         public void DoNotApplyDiscount_whenProductsAreInShoppingcart_productsPricesZero()
         {
             // Arrange 

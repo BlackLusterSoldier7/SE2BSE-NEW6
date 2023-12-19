@@ -1,0 +1,6 @@
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\XUnitTestWebshop\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\XUnitTestWebshop\obj\Debug\net6.0\XUnitTestWebshop.csproj.AssemblyReference.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\XUnitTestWebshop\obj\Debug\net6.0\XUnitTestWebshop.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\XUnitTestWebshop\obj\Debug\net6.0\XUnitTestWebshop.AssemblyInfoInputs.cache
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\XUnitTestWebshop\obj\Debug\net6.0\XUnitTestWebshop.AssemblyInfo.cs
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\XUnitTestWebshop\obj\Debug\net6.0\XUnitTestWebshop.csproj.CoreCompileInputs.cache

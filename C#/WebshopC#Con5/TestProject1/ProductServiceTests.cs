@@ -24,6 +24,8 @@ namespace TestProject1
             var recommendations = productService.GetSearchHistoryRecommendations(user);
 
             // Assert 
+            // Checks of de recommendations lijst leeg is. 
+            // De reden hiervoor is, omdat de User geen zoekgeschiedenis heeft. Zie naam unit test 
             Assert.Empty(recommendations);
         }
 

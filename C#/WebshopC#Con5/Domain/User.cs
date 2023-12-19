@@ -24,17 +24,17 @@ namespace Domain
         public User(string username, IWarehouse warehouse)
         {
             this.Username = username;
-            // shoppingCart = new Shoppingcart(warehouse); origineel oude code 
+            shoppingCart = new Shoppingcart(warehouse); 
 
-            shoppingCart = new Shoppingcart(null); // om te testen 
+            // shoppingCart = new Shoppingcart(null); // om te testen 
             SearchHistory = new List<string>();
         }
 
         public User(string username, Warehouse warehouse, bool isNewUser = true)
         {
             Username = username;
-            // shoppingCart = new Shoppingcart(warehouse); origineel oude code 
-            shoppingCart = new Shoppingcart(null); // om te testen 
+            shoppingCart = new Shoppingcart(warehouse); 
+            // shoppingCart = new Shoppingcart(null); // om te testen 
             SearchHistory = new List<string>();
             IsNewUser = isNewUser;
         }
