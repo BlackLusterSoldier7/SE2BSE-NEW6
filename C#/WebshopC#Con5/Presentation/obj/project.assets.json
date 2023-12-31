@@ -6,7 +6,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Infrastructure": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {
@@ -20,6 +19,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {
@@ -60,7 +60,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Domain >= 1.0.0"
+      "Domain >= 1.0.0",
+      "Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -97,6 +98,9 @@
           "projectReferences": {
             "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Con5\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Con5\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Con5\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\HP-Spectre\\Documents\\GitFontys\\SE2BSE-NEW6\\C#\\WebshopC#Con5\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

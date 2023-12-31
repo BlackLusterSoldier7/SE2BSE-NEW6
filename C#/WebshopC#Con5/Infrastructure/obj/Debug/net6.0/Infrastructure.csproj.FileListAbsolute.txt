@@ -19,3 +19,8 @@ C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastruct
 C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\obj\Debug\net6.0\Infrastructure.pdb
 C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\obj\Debug\net6.0\Infrastructure.genruntimeconfig.cache
 C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\obj\Debug\net6.0\ref\Infrastructure.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\bin\Debug\net6.0\Domain.deps.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\bin\Debug\net6.0\Domain.runtimeconfig.json
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\bin\Debug\net6.0\Domain.exe
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\bin\Debug\net6.0\Domain.dll
+C:\Users\HP-Spectre\Documents\GitFontys\SE2BSE-NEW6\C#\WebshopC#Con5\Infrastructure\bin\Debug\net6.0\Domain.pdb

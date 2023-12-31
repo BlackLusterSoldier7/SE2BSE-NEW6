@@ -17,7 +17,7 @@ namespace TestProject1
         {
             // Arrange 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(15, "NegaDi##@");
 
             mockCart.CouponCode = "NegaDi##@";
@@ -39,7 +39,7 @@ namespace TestProject1
         {
             // Arrange 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(26, "ShoppZeroDi#");
 
             mockCart.CouponCode = "ShoppZeroDi#";
@@ -62,7 +62,7 @@ namespace TestProject1
         {
             // Arrange 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(14, "ZeroPrice@#67");
 
             mockCart.CouponCode = "ZeroPrice@#67";
@@ -98,7 +98,7 @@ namespace TestProject1
         {
             // Arrange 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(25, "DIS##123");
 
             mockCart.CouponCode = "DIS##123";
@@ -119,7 +119,7 @@ namespace TestProject1
             // Arrange 
             GrouponCodeDiscount discount = new GrouponCodeDiscount(30, "dis33@#234");
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
 
             mockCart.CouponCode = "dis33@#234";
             var product = new Product("Samsung Smart TV", "4K OLED TV 75 inch. ", 100, null);
@@ -138,7 +138,7 @@ namespace TestProject1
         {
             // Arrange 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(35, "##GroupC2");
 
             mockCart.CouponCode = "InvalidGrouponCode@@@##";
@@ -158,7 +158,7 @@ namespace TestProject1
         {
             // Arrange 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(40, "Groupon99");
 
             mockCart.CouponCode = "Groupon99";
@@ -177,7 +177,7 @@ namespace TestProject1
             // Arrange 
 
             var warehouse = new MockWarehouse();
-            var mockCart = new MockShoppingcart(warehouse);
+            var mockCart = new Shoppingcart(warehouse);
             var discount = new GrouponCodeDiscount(22, "GroupCode$$");
 
             var product = new Product("Zit sta bureau Ahred", "Zit sta bureau Ahrend elektrisch verstelbaar", 3375, null);

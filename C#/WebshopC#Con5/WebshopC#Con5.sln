@@ -19,13 +19,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{BEE3EAF5-9C75-45AD-B2CF-8B142270A396}"
 	ProjectSection(ProjectDependencies) = postProject
-		{82E4E0F0-2328-418F-90F3-C4FA054AE54E} = {82E4E0F0-2328-418F-90F3-C4FA054AE54E}
 		{9F863D81-CEB4-4F9F-AB8B-460FB03F664C} = {9F863D81-CEB4-4F9F-AB8B-460FB03F664C}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMathTest", "BasicMathTest\BasicMathTest.csproj", "{ADB5233B-D88E-4056-92CC-F0366761CE10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{A74191E7-5FB5-4E1B-9FAC-8E13197A6885}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

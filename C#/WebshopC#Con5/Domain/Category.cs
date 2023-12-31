@@ -1,4 +1,4 @@
-﻿using Infrastructure.DTO;
+﻿using Domain.DTO;
 using System;
 using System.Buffers.Text;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿using Infrastructure.DTO;
+﻿using Domain.DTO;
 using Shared;
 using System;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace Domain
 
         private List<Review> reviews;
 
-        public Discount Discount { get; private set; }
+  
 
         public ProductCategory Category { get; }
 

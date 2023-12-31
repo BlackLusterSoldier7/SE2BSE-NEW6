@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Presentation/1.0.0": {
         "dependencies": {
-          "Domain": "1.0.0"
+          "Domain": "1.0.0",
+          "Infrastructure": "1.0.0"
         },
         "runtime": {
           "Presentation.dll": {}
@@ -16,7 +17,6 @@
       },
       "Domain/1.0.0": {
         "dependencies": {
-          "Infrastructure": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {
@@ -25,6 +25,7 @@
       },
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {

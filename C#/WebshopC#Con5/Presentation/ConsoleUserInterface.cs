@@ -1,6 +1,6 @@
 ﻿using Domain;
 using Infrastructure;
-using Infrastructure.DTO;
+using Domain.DTO;
 using Shared;
 using System;
 using System.Collections.Generic;
@@ -25,6 +25,8 @@ namespace Presentation
         private ProductService productService;
         private UserService userService;
 
+
+
         private List<IDiscount> availableDiscounts;
         private List<IDiscount> selectedDiscounts;
 
@@ -33,18 +35,18 @@ namespace Presentation
 
             Warehouse warehouse = new Warehouse();
             ProductRepository productRepository = new ProductRepository();
+            UserRepository userRepository = new UserRepository(); 
 
-            ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface(warehouse, productRepository);
+            ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface(warehouse, productRepository, userRepository);
             consoleUserInterface.RunShop();
         }
 
-        public ConsoleUserInterface(IWarehouse warehouse, IProductRepository productRepository)
+        public ConsoleUserInterface(IWarehouse warehouse, IProductRepository productRepository, IUserRepository userRepository)
         {
             this.productRepository = productRepository;
-            userRepository = new UserRepository();
 
             this.productService = new ProductService(productRepository);
-            this.userService = new UserService();
+            this.userService = new UserService(userRepository);
             this.warehouse = warehouse;
 
             var shoppingCart = new Shoppingcart(warehouse);

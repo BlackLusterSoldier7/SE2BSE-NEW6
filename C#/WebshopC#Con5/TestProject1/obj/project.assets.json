@@ -1717,7 +1717,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Infrastructure": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {
@@ -1731,6 +1730,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "compile": {

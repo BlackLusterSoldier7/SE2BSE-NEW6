@@ -16,7 +16,7 @@ namespace TestProject1
             // Arrange 
             Warehouse warehouse = new Warehouse();
             QuantityDiscount discount = new QuantityDiscount(5, 10);
-            Shoppingcart cart = new Shoppingcart(warehouse);
+            Domain.Shoppingcart cart = new Domain.Shoppingcart(warehouse);
             Product product = new Product("iPhone 15", "iPhone 15 Pro MAX 512 GB", 1900, Shared.ProductCategory.Electronics);
             cart.AddProductToShoppingcart(product, 3);
 
@@ -33,7 +33,7 @@ namespace TestProject1
             // Arrange 
             Warehouse warehouse = new Warehouse();
             QuantityDiscount discount = new QuantityDiscount(5, 10);
-            Shoppingcart cart = new Shoppingcart(warehouse);
+            Domain.Shoppingcart cart = new Domain.Shoppingcart(warehouse);
             Product product = new Product("HP Laptop 2023", "i9 processor, 1 TB SSD, 64 GB RAM en 128 GB VideoKaart", 2500, Shared.ProductCategory.Electronics);
             cart.AddProductToShoppingcart(product, 9);
 
@@ -50,7 +50,7 @@ namespace TestProject1
             // Arrange 
             Warehouse warehouse = new Warehouse();
             QuantityDiscount discount = new QuantityDiscount(6, 15);
-            Shoppingcart cart = new Shoppingcart(warehouse);
+            Domain.Shoppingcart cart = new Domain.Shoppingcart(warehouse);
 
             // Act 
             double result = discount.ApplyDiscount(cart);
@@ -65,7 +65,7 @@ namespace TestProject1
             // Arrange 
             Warehouse warehouse = new Warehouse();
             QuantityDiscount discount = new QuantityDiscount(7, 13);
-            Shoppingcart cart = new Shoppingcart(warehouse);
+            Domain.Shoppingcart cart = new Domain.Shoppingcart(warehouse);
             Product product = new Product("Playstation 5", "Playstation 5 met Call of Duty Modern Warefare III. ", 550, Shared.ProductCategory.Electronics);
             cart.AddProductToShoppingcart(product, 3);
 

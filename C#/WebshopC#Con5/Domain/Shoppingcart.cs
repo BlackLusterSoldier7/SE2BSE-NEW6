@@ -30,10 +30,10 @@ namespace Domain
             {
                 double pricePerProduct = entry.Product.Price;
 
-                if (entry.Product.Discount != null)
+               /* if (entry.Product.Discount != null)
                 {
                     pricePerProduct = entry.Product.Discount.ApplyDiscount(pricePerProduct);
-                }
+                }*/
                 total += pricePerProduct * entry.Amount;
             }
             return total;

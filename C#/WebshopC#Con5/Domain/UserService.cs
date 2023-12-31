@@ -1,5 +1,5 @@
-﻿using Infrastructure;
-using Infrastructure.DTO;
+﻿
+using Domain.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +10,16 @@ namespace Domain
 {
     public class UserService
     {
-        private UserRepository userRepository;
+        private IUserRepository userRepository; 
 
-        public UserService()
+
+
+
+
+
+        public UserService(IUserRepository userRepository)
         {
-            this.userRepository = new UserRepository();
+            this.userRepository = userRepository; 
         }
 
         public List<UserDTO> GetAllUsers()
