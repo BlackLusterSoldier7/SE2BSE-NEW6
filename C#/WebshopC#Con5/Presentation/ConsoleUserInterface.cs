@@ -30,24 +30,30 @@ namespace Presentation
         private List<IDiscount> availableDiscounts;
         private List<IDiscount> selectedDiscounts;
 
+        private PaymentService paymentService; 
+
+
         public static void Main(string[] args)
         {
 
             Warehouse warehouse = new Warehouse();
             ProductRepository productRepository = new ProductRepository();
-            UserRepository userRepository = new UserRepository(); 
+            UserRepository userRepository = new UserRepository();
+            PaymentService paymentService = new PaymentService(); 
 
-            ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface(warehouse, productRepository, userRepository);
+            ConsoleUserInterface consoleUserInterface = new ConsoleUserInterface(warehouse, productRepository, userRepository, paymentService);
             consoleUserInterface.RunShop();
         }
 
-        public ConsoleUserInterface(IWarehouse warehouse, IProductRepository productRepository, IUserRepository userRepository)
+        public ConsoleUserInterface(IWarehouse warehouse, IProductRepository productRepository, IUserRepository userRepository, PaymentService paymentService)
         {
             this.productRepository = productRepository;
 
             this.productService = new ProductService(productRepository);
             this.userService = new UserService(userRepository);
             this.warehouse = warehouse;
+
+            this.paymentService = paymentService; 
 
             var shoppingCart = new Shoppingcart(warehouse);
 
@@ -435,13 +441,13 @@ namespace Presentation
                 return;
             }
 
-            var kassa = new Kassa();
+          
 
-            Bill bill = kassa.CheckOut(currentUser.shoppingCart, selectedDiscounts);
+            Bill bill = paymentService.CheckOut(currentUser.shoppingCart, selectedDiscounts);
 
-            Console.WriteLine($"Total before discount: {bill.Total:C}");
-            Console.WriteLine($"Total discount: {bill.Discount:C}");
-            Console.WriteLine($"Total after discount: {bill.Total - bill.Discount:C}");
+            Console.WriteLine($"Total before discount: EUR {bill.Total:.2f}");
+            Console.WriteLine($"Total discount: EUR {bill.Discount:.2f}");
+            Console.WriteLine($"Total after discount: EUR {bill.Total - bill.Discount:.2f}");
 
             selectedDiscounts.Clear();
         }

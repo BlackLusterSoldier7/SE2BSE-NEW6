@@ -11,29 +11,38 @@ namespace Domain
     public class PaymentService
     {
         public List<Product> Products { get; private set; }
-        public Shoppingcart shoppingcart { get; private set; }
 
-        public PaymentService(Shoppingcart shoppingcart)
+
+        public PaymentService()
         {
             Products = new List<Product>();
-            this.shoppingcart = shoppingcart;
+       
         }
 
-        public PaymentResultDTO DoPayment(Order order)
+
+        public Bill CheckOut(Shoppingcart shoppingcart, List<IDiscount> discounts)
         {
-            PaymentResultDTO paymentResultDTO = new PaymentResultDTO
-            {
-                Success = false,
-                Message = "Payment failed: Invalid order or shopping cart is empty. "
-            };
+            double total = shoppingcart.CalculateTotalPrice();
+            double totalDiscount = 0;
 
-            if (order != null && shoppingcart != null && Products.Count > 0)
+            foreach (var discount in discounts)
             {
-                paymentResultDTO.Success = true;
-                paymentResultDTO.Message = "Payment successful for order " + order.Shippingaddress + " eigenlijk order number of ID. Voor test shippingadres gedaan. ";
-                paymentResultDTO.AmountPaid = shoppingcart.CalculateTotalPrice();
+                double discountAmount = discount.ApplyDiscount(shoppingcart);
+                totalDiscount += discountAmount;
+
+                // De totale korting mag niet meer dan totaalbedrag zijn 
+                if (totalDiscount > total)
+                {
+                    totalDiscount = total;
+                    break;
+                }
             }
-            return paymentResultDTO;
+            return new Bill(total, totalDiscount);
         }
+
+
+
+
+
     }
 }
