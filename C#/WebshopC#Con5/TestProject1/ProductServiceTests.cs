@@ -1,5 +1,5 @@
 ﻿using Domain;
-using Infrastructure.DTO;
+using Domain.DTO;
 using Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace TestProject1
         {
             // Arrange 
             var mockProductRepository = new MockProductRepository();
-            mockProductRepository.Products = new List<ProductDTO>
+            mockProductRepository.Products = new List<Domain.DTO.ProductDTO>
             {
                 new ProductDTO { Name = "Arduino UNO R4 ", Description = "The Arduino UNO R4 WiFi combines the processing power and exciting new peripherals of the RA4M1 microcontroller from Renesas with the wireless connectivity power of the ESP32-S3 from Espressif. On top of this, the UNO R4 WiFi offers an on-board 12x8 LED matrix, Qwiic connector, VRTC, and OFF pin, covering all potential needs makers will have for their next project.", Price = 45 },
                 new ProductDTO { Name = "Raspberry Pi Pico", Description = "Powerful, flexible microcontroller boards, available from $4\r\n\r\nThe Raspberry Pi Pico series is a range of tiny, fast, and versatile boards built using RP2040, the flagship microcontroller chip designed by Raspberry Pi in the UK", Price = 17 },

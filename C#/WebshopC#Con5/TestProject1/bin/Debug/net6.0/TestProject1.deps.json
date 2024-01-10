@@ -1024,7 +1024,6 @@
       "xunit.runner.visualstudio/2.4.5": {},
       "Domain/1.0.0": {
         "dependencies": {
-          "Infrastructure": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {
@@ -1033,6 +1032,7 @@
       },
       "Infrastructure/1.0.0": {
         "dependencies": {
+          "Domain": "1.0.0",
           "Shared": "1.0.0"
         },
         "runtime": {

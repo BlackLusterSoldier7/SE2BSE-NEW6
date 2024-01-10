@@ -1,5 +1,5 @@
 ﻿using Domain;
-using Infrastructure.DTO;
+using Domain.DTO;
 using NuGet.Frameworks;
 using Shared;
 using System;

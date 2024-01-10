@@ -1,6 +1,6 @@
 ﻿using Domain;
 using Infrastructure;
-using Infrastructure.DTO;
+using Domain.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
